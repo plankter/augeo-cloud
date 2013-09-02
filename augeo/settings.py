@@ -6,20 +6,14 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Anton Rau', 'anton.rau@gmail.com'),
 )
-
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'google.appengine.ext.django.backends.rdbms',
-        'INSTANCE': 'augeo-cloud:django',
-        'NAME': 'augeo',
-    }
-}
 import dj_database_url
-DATABASES['default'] = dj_database_url.config()
+DATABASES = {
+    'default': dj_database_url.config(default='postgresql://localhost/augeo')
+}
 
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -125,9 +119,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+
+    'storages',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -158,3 +154,18 @@ LOGGING = {
         },
     }
 }
+
+
+
+# django-storages start
+
+# AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = '0VRTEBFF7H594ADRCH82'
+AWS_SECRET_ACCESS_KEY = 'tS97rUlntb4U8SIAjn+zBIzD3zpFzLKJlLI0krGf'
+AWS_STORAGE_BUCKET_NAME = 'augeo'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+# django-storages end
