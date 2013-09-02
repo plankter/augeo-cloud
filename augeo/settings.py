@@ -11,6 +11,13 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'google.appengine.ext.django.backends.rdbms',
+        'INSTANCE': 'augeo-cloud:django',
+        'NAME': 'augeo',
+    }
+}
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 
