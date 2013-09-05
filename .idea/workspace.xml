@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/settings.py" afterPath="$PROJECT_DIR$/augeo/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/wsgi.py" afterPath="$PROJECT_DIR$/augeo/wsgi.py" />
     </list>
     <ignored path="augeo-cloud.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378403536104" ignored="false" />
+    <file path="/Dummy.txt" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378406471383" ignored="false" />
     <file path="/Procfile" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378084873806" ignored="false" />
     <file path="/settings.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378406409983" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -277,7 +276,11 @@
       <created>1378403540061</created>
       <updated>1378403540061</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="WIP">
+      <created>1378406478363</created>
+      <updated>1378406478363</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
