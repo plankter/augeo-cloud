@@ -1,1 +1,1 @@
-web: gunicorn augeo.wsgi
+web: newrelic-admin run-program gunicorn augeo.wsgi
