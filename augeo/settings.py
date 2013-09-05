@@ -119,6 +119,7 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
 )
 
 
+SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 
 def get_cache():
   try:
