@@ -50,12 +50,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = 'media'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -72,6 +72,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, '..', 'pinry/static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -80,6 +81,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -95,11 +97,13 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'pinry.users.middleware.Public',
 )
 
 ROOT_URLCONF = 'augeo.urls'
@@ -111,11 +115,19 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, '..', 'pinry/templates'),
 )
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
     'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'pinry.core.context_processors.template_settings',
 )
 
 
@@ -153,6 +165,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'south',
+
     'suit',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
@@ -160,6 +174,12 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'storages',
+
+    'taggit',
+    'compressor',
+    'django_images',
+    'pinry.core',
+    'pinry.users',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -216,3 +236,44 @@ SUIT_CONFIG = {
 }
 
 # django-suit end
+
+
+
+# pinry start
+
+# Changes the naming on the front-end of the website.
+SITE_NAME = 'Pinry'
+
+# Set to False to disable people from creating new accounts.
+ALLOW_NEW_REGISTRATIONS = True
+
+# Set to False to force users to login before seeing any pins.
+PUBLIC = True
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
+INTERNAL_IPS = ['127.0.0.1']
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.WARNING: 'alert',
+    messages.ERROR: 'alert alert-error',
+    messages.SUCCESS: 'alert alert-success',
+    messages.INFO: 'alert alert-info',
+}
+API_LIMIT_PER_PAGE = 50
+
+AUTHENTICATION_BACKENDS = (
+    'pinry.users.auth.backends.CombinedAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+IMAGE_PATH = 'pinry.core.utils.upload_path'
+IMAGE_SIZES = {
+    'thumbnail': {'size': [240, 0]},
+    'standard': {'size': [600, 0]},
+    'square': {'crop': True, 'size': [125, 125]},
+}
+
+# pinry end

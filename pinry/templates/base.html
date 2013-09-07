@@ -1,0 +1,119 @@
+{% load static from staticfiles %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+        <!--  ___                     ___           ___                 
+             /  /\      ___          /__/\         /  /\          ___   
+            /  /::\    /  /\         \  \:\       /  /::\        /__/|  
+           /  /:/\:\  /  /:/          \  \:\     /  /:/\:\      |  |:|  
+          /  /:/~/:/ /__/::\      _____\__\:\   /  /:/~/:/      |  |:|  
+         /__/:/ /:/  \__\/\:\__  /__/::::::::\ /__/:/ /:/___  __|__|:|  
+         \  \:\/:/      \  \:\/\ \  \:\~~\~~\/ \  \:\/:::::/ /__/::::\  
+          \  \::/        \__\::/  \  \:\  ~~~   \  \::/~~~~     ~\~~\:\ 
+           \  \:\        /__/:/    \  \:\        \  \:\           \  \:\
+            \  \:\       \__\/      \  \:\        \  \:\           \__\/
+             \__\/                   \__\/         \__\/             -->
+
+        <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monoton"/>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.1.1/fineuploader.css"/>
+        {% compress css %}
+        <link rel="stylesheet" href="{% static "css/messages.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/lightbox.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/pinry.css" %}"/>
+        {%  endcompress %}
+        {% compress css inline %}
+        {% block extra_css %}{% endblock %}
+        {% endcompress %}
+        <!-- End CSS -->
+
+        <!-- Start JavaScript Variables -->
+        <script>
+        var apiLimitPerPage = {{ API_LIMIT_PER_PAGE }},
+            errors = {% if not messages %}null,{% else %}[
+                {% for message in messages %}{
+                    tags: "{{ message.tags }}",
+                    text: "{{ message }}"
+                }{% endfor %}
+            ],{% endif %}
+            currentUser = {
+                id: "{{ user.id }}",
+                username: "{{ user.username }}",
+                gravatar: "{{ user.gravatar }}"
+            },
+            tagFilter = "{{ request.resolver_match.kwargs.tag }}",
+            userFilter = "{{ request.resolver_match.kwargs.user }}";
+        </script>
+        <!-- End JavaScript Variables -->
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <a href="{% url 'core:recent-pins' %}" class="brand pull-left">{{ SITE_NAME }}</a>
+                <ul class="nav pull-right">
+                {% if user.is_authenticated %}
+                    <li>{% include "includes/bookmarklet_link.html" %}</li>
+                    <li><a onclick="pinForm()">New Pin</a></li>
+                    <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'users:login' %}">Login</a></li>
+                    <li><a href="{% url 'users:register' %}">Register</a></li>
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+        <!-- End Navigation -->
+
+        <!-- Messages -->
+        <ul id="messages"></ul>
+        <!-- End Messages -->
+
+        <!-- No Script -->
+        <div id="noscript">
+            <noscript>Scripting is not enabled in your browser, if you are using
+                a plugin like NoScript *high five*! Our code is open source and
+                you can view it on
+                <a href="https://github.com/pinry/pinry/">GitHub</a>.
+                <style>.spinner{display:none;}</style></noscript>
+        </div>
+        <!-- End No Script -->
+
+        <!-- Content -->
+        {% block yield %}{% endblock %}
+        <!-- End Content -->
+
+        <!-- Templates -->
+        {% include "includes/messages.html" %}
+        {% include "includes/lightbox.html" %}
+        {% include "includes/pins.html" %}
+        {% include "includes/pin_form.html" %}
+        {% block extra_templates %}{% endblock %}
+        <!-- End Templates -->
+
+        <!-- JavaScript -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.1.1/jquery.fineuploader.min.js"></script>
+        {% compress js %}
+        <script src="{% static "js/helpers.js" %}"></script>
+        <script src="{% static "js/messages.js" %}"></script>
+        <script src="{% static "js/lightbox.js" %}"></script>
+        <script src="{% static "js/pinry.js" %}"></script>
+        <script src="{% static "js/pin-form.js" %}"></script>
+        {% endcompress %}
+        {% compress js inline %}
+        {% block extra_js %}{% endblock %}
+        {% endcompress %}
+        <!-- End JavaScript -->
+    </body>
+</html>

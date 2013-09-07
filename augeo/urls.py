@@ -14,4 +14,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'', include('pinry.core.urls', namespace='core')),
+    url(r'', include('pinry.users.urls', namespace='users')),
 )

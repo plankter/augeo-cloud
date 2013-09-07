@@ -1,0 +1,262 @@
+/* Start Globals */
+body {
+    background: #eee;
+    margin-top: 70px;
+}
+
+a {
+    cursor: pointer;
+}
+
+#noscript {
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0 auto;
+    width: 500px;
+    text-align: center;
+}
+/* End Globals */
+
+
+/* Start Navigation */
+.navbar-fixed-top .navbar-inner {
+    background: white;
+    background-image: none;
+    -webkit-box-shadow: 0 1px 0 #bbb;
+       -moz-box-shadow: 0 1px 0 #bbb;
+            box-shadow: 0 1px 0 #bbb;
+    border-bottom: 1px solid #bbb;
+    filter: none;
+    height: 48px;
+}
+
+.navbar .brand {
+    color: #275173;
+    font-family: 'Monoton', sans-serif;
+    font-size: 30px;
+    margin: 5px 0 0 -7px;
+}
+
+.navbar .nav > li > a {
+    background: #ddd;
+    -webkit-border-radius: 2px;
+       -moz-border-radius: 2px;
+            border-radius: 2px;
+    color: #333;
+    margin: 12px 7px;
+    padding: 3px 13px;
+    text-shadow: none;
+}
+
+.navbar .nav > li:last-child > a {
+    margin-right: 14px;
+}
+
+.navbar .nav > li > a:hover {
+    background: #275173;
+    color: #ddd;
+}
+
+#bookmarklet {
+    cursor: move;
+}
+/* End Navigation */
+
+
+/* Start Forms */
+#form {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+#form h1 {
+    font-family: 'Monoton';
+    font-weight: normal;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+form {
+    margin-bottom: 0;
+}
+
+textarea {
+    height: 70px;
+}
+
+.form-actions {
+    margin-bottom: 0;
+}
+
+.qq-upload-button {
+    background: #eee;
+    border: 3px dashed #888;
+    -webit-border-radius: 3px;
+      -moz-border-radius: 3px;
+           border-radius: 3px;
+    color: black;
+    width: 214px;
+}
+
+.qq-upload-drop-area {
+    background: #275173;
+    border: 3px dashed #aaa;
+    -webit-border-radius: 3px;
+      -moz-border-radius: 3px;
+           border-radius: 3px;
+    color: #ccc;
+}
+
+.qq-upload-success {
+    -webit-border-radius: 3px;
+      -moz-border-radius: 3px;
+           border-radius: 3px;
+}
+
+.qq-upload-list li {
+    background-color: #eee;
+    -webit-border-radius: 3px;
+      -moz-border-radius: 3px;
+           border-radius: 3px;
+}
+
+.qq-upload-spinner {
+    display: none;
+}
+
+.modal-body {
+    overflow: hidden;
+}
+/* End Forms */
+
+
+/* Start Pins */
+#pins {
+    top: 70px;
+}
+
+.pin {
+    background: #fff;
+    border: 1px solid #bbb;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 #bbb;
+       -moz-box-shadow: 0 1px 0 #bbb;
+            box-shadow: 0 1px 0 #bbb;
+    display: none;
+    position: absolute;
+    width: 240px;
+}
+
+.pin .editable {
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+
+.pin:hover .editable {
+    display: block;
+}
+
+.pin .editable .borderable {
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+    cursor: pointer;
+    padding: 5px 8px;
+    display: inline-block;
+}
+
+.pin .image-wrapper {
+    background-image: url("../img/loader.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.pin img {
+    -webkit-border-top-left-radius: 3px;
+        -moz-border-radius-topleft: 3px;
+            border-top-left-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+        -moz-border-radius-topright: 3px;
+            border-top-right-radius: 3px;
+    cursor: -webkit-zoom-in;
+    cursor:    -moz-zoom-in;
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 240px;
+}
+
+.pin p {
+    border-bottom: 1px solid #ddd;
+    font-family: 'Georgia', 'Times', 'Times New Roman', serif;
+    font-size: 12px;
+    margin-bottom: 0;
+    padding: 8px;
+}
+
+.pin strong {
+    color: #777;
+    font-weight: normal;
+}
+
+.pin-footer {
+    color: #777;
+    cursor: default;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.pin-footer .dim {
+    color: #999;
+    font-weight: normal;
+}
+
+.pin-footer .avatar {
+    background: white;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    height: 30px;
+    width: 30px;
+}
+
+.pin-footer .avatar img {
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+}
+
+.pin-footer .text {
+    line-height: 16px;
+    margin-top: -1px;
+    width: 180px;
+}
+
+.spinner {
+    background: url('../img/loader.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 31px;
+    margin: 0 auto;
+    padding: 50px;
+    width: 31px;
+}
+
+#the-end {
+    font-family: 'Georgia', 'Times', 'Times New Roman', serif;
+    font-size: 1.4em;
+    font-style: italic;
+    text-align: center;
+}
+/* End Pins */
