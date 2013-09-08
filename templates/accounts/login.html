@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form action="{% url "accounts:login" %}" method="post" class="form-signin">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Please login</h2>
+            <input name="username" id="username" type="text" class="form-control" placeholder="Name" autofocus>
+            <input name="password" id="password" type="password" class="form-control" placeholder="Password">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </div>
+{% endblock %}
