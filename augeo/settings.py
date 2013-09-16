@@ -86,7 +86,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '%+lvskm29)8#5w__7*6mh)&nk5!@szzc@ww8hrb=$*o7v*q%83'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -98,7 +98,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
@@ -119,8 +119,7 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, '..', 'templates'),
 )
 
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
@@ -128,7 +127,11 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.static',
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
+
     'pinry.core.context_processors.template_settings',
+
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
 )
 
 
@@ -167,6 +170,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'south',
+    'social.apps.django_app.default',
 
     'suit',
     # Uncomment the next line to enable the admin:
@@ -213,12 +217,21 @@ LOGGING = {
 }
 
 
+AUTHENTICATION_BACKENDS = (
+      'social.backends.twitter.TwitterOAuth',
+      'social.backends.facebook.FacebookOAuth2',
+
+      'pinry.users.auth.backends.CombinedAuthBackend',
+
+      'django.contrib.auth.backends.ModelBackend',
+)
+
 
 # django-storages start
 
-AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_QUERYSTRING_AUTH = False
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
@@ -251,8 +264,8 @@ ALLOW_NEW_REGISTRATIONS = True
 # Set to False to force users to login before seeing any pins.
 PUBLIC = True
 
-LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
+#LOGIN_URL = '/login/'
+#LOGIN_REDIRECT_URL = '/'
 INTERNAL_IPS = ['127.0.0.1']
 
 from django.contrib.messages import constants as messages
@@ -264,12 +277,6 @@ MESSAGE_TAGS = {
 }
 API_LIMIT_PER_PAGE = 50
 
-AUTHENTICATION_BACKENDS = (
-    'pinry.users.auth.backends.CombinedAuthBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-
 IMAGE_PATH = 'pinry.core.utils.upload_path'
 IMAGE_SIZES = {
     'thumbnail': {'size': [240, 0]},
@@ -278,3 +285,22 @@ IMAGE_SIZES = {
 }
 
 # pinry end
+
+
+
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = '/'
+URL_PATH = ''
+SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
+SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
+
+# Python Social Auth start
+
+SOCIAL_AUTH_TWITTER_KEY = os.environ['TWITTER_KEY']
+SOCIAL_AUTH_TWITTER_SECRET = os.environ['TWITTER_SECRET']
+
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ['FACEBOOK_APP_KEY']
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FACEBOOK_APP_SECRET']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+# Python Social Auth end
