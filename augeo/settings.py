@@ -14,7 +14,7 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(default='postgresql://localhost/augeo')
 }
-`
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()

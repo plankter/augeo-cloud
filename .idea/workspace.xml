@@ -2,32 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gallery/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gallery/admin.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gallery/context_processors.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gallery/forms.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/gallery/list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/gallery/list_page.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gallery/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/photo_album.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/gallery/upload.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gallery/views.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/footer.html" afterPath="$PROJECT_DIR$/templates/_footer.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/ie.html" afterPath="$PROJECT_DIR$/templates/_ie.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/login_modal_form.html" afterPath="$PROJECT_DIR$/templates/_login_modal_form.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/navbar.html" afterPath="$PROJECT_DIR$/templates/_navbar.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/scripts.html" afterPath="$PROJECT_DIR$/templates/_scripts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pinry/static/css/messages.css" afterPath="$PROJECT_DIR$/pinry/static/css/messages.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/settings.py" afterPath="$PROJECT_DIR$/augeo/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/urls.py" afterPath="$PROJECT_DIR$/augeo/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="augeo-cloud.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379704781785" ignored="false" />
+    <file path="/Dummy.txt" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379720419003" ignored="false" />
     <file path="/Procfile" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378084873806" ignored="false" />
     <file path="/settings.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379720153885" ignored="false" />
     <file path="/Django Console" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378410706077" ignored="false" />
@@ -70,7 +50,7 @@
       <file leaf-file-name="settings.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/augeo/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="1" selection-start="278" selection-end="278" vertical-scroll-proportion="0.30495554">
+            <state line="16" column="0" selection-start="277" selection-end="277" vertical-scroll-proportion="0.30495554">
               <folding />
             </state>
           </provider>
@@ -583,30 +563,34 @@
       <created>1379268695925</created>
       <updated>1379268695925</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="WIP">
+      <created>1379720423968</created>
+      <updated>1379720423968</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="10" y="22" width="2540" height="1330" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20769848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21651965" sideWeight="0.6735537" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20769848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39917356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3264463" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21651965" sideWeight="0.6735537" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3264463" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32999197" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -807,7 +791,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/augeo/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="1" selection-start="278" selection-end="278" vertical-scroll-proportion="0.30495554">
+        <state line="16" column="0" selection-start="277" selection-end="277" vertical-scroll-proportion="0.30495554">
           <folding />
         </state>
       </provider>
