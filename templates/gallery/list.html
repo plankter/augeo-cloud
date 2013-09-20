@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+  <div class="photos">
+    <p>
+      Following are the images uploaded by you. You can also upload more pictures.
+
+      You can click on each picture to view its original size, and see more info about and additional transformations.
+      <a class="upload_link" href="{% url "gallery.views.upload" %}">Upload Images...</a>
+    </p>
+
+    {% if not photos.exists %}
+      <p>No images were uploaded yet.</p>
+    {% endif %}
+
+
+  {% include page_template %}
+
+  </div>
+{% endblock %}
+
+{% block javascript %}
+  $(function () {
+    $('.toggle_info').click(function () {
+      $(this).closest('.photo').toggleClass('show_more_info');
+      return false;
+    });
+  });
+{% endblock javascript %}

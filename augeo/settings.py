@@ -14,7 +14,7 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(default='postgresql://localhost/augeo')
 }
-
+`
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -79,10 +79,9 @@ STATICFILES_DIRS = (
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    #'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -117,6 +116,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, '..', 'templates'),
+    os.path.join(BASE_DIR, '..', 'templates', 'gallery'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -129,6 +129,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
 
     'pinry.core.context_processors.template_settings',
+
+    'gallery.context_processors.consts',
 
     'social.apps.django_app.context_processors.backends',
     'social.apps.django_app.context_processors.login_redirect',
@@ -179,6 +181,9 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 
     'storages',
+    'cloudinary',
+    'gallery',
+    'endless_pagination',
 
     'taggit',
     'compressor',
@@ -304,3 +309,24 @@ SOCIAL_AUTH_FACEBOOK_SECRET = os.environ['FACEBOOK_APP_SECRET']
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
 # Python Social Auth end
+
+
+# Cloudinary start
+
+import cloudinary
+
+cloudinary.config(
+  cloud_name = os.environ['CLOUDINARY_CLOUD_NAME'],
+  api_key = os.environ['CLOUDINARY_API_KEY'],
+  api_secret = os.environ['CLOUDINARY_API_SECRET']
+)
+
+# Cloudinary end
+
+
+# Django Endless Pagination start
+
+ENDLESS_PAGINATION_PER_PAGE = 1
+ENDLESS_PAGINATION_LOADING = """<img src="https://s3-eu-west-1.amazonaws.com/augeo/img/loader.gif" alt="Loading..." />"""
+
+# Django Endless Pagination end

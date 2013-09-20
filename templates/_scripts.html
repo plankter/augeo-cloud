@@ -1,0 +1,14 @@
+{% load cloudinary %}
+{% load staticfiles %}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+{% cloudinary_includes %}
+{% cloudinary_js_config %}
+
+<script src="{% static "endless_pagination/js/endless-pagination.js" %}"></script>
+<script>
+        $.endlessPaginate({
+            paginateOnScroll: true
+        });
+    </script>
