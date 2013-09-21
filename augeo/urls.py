@@ -12,8 +12,6 @@ urlpatterns = patterns('',
     # URL for listing all images:
     url(r'^$', gallery.PhotoList.as_view(), name='home'),
     url(r'^list$', gallery.PhotoList.as_view()),
-    # URL for uploading an image
-    url(r'^upload$', gallery.upload),
     # The direct upload functionality reports to this URL when an image is uploaded.
     url(r'^upload/complete$', gallery.direct_upload_complete),
 

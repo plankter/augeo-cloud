@@ -326,7 +326,7 @@ cloudinary.config(
 
 # Django Endless Pagination start
 
-ENDLESS_PAGINATION_PER_PAGE = 1
+ENDLESS_PAGINATION_PER_PAGE = 5
 ENDLESS_PAGINATION_LOADING = """<img src="https://s3-eu-west-1.amazonaws.com/augeo/img/loader.gif" alt="Loading..." />"""
 
 # Django Endless Pagination end

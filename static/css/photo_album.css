@@ -29,7 +29,7 @@ td { vertical-align: top; padding-right: 5px; }
 
 .back_link { font-weight: bold; display: block; font-size: 16px; margin: 10px 0; }
 #direct_upload { position: relative; min-height: 90px}
-.status { position: absolute; top: 20px; left: 500px; text-align: center; border: 1px solid #aaa;
+.status { text-align: center; border: 1px solid #aaa;
        padding: 10px; width: 200px }
 
 .uploaded_info { margin: 10px}

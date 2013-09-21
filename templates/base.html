@@ -16,7 +16,7 @@
     <link href="{% static "css/social-buttons-3.css" %}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{% static "css/augeo.css" %}" rel="stylesheet">
-    <link href="{% static "css/photo_album.css" %}" rel="stylesheet">
+{#    <link href="{% static "css/photo_album.css" %}" rel="stylesheet">#}
 
     {% include "_ie.html" %}
 </head>
@@ -29,37 +29,20 @@
     {% include "_navbar.html" %}
 
     <!-- Begin page content -->
-    {% block content %}
-
-        <div class="container">
-            <div class="page-header">
-                <h1>Sticky footer with fixed navbar</h1>
-            </div>
-            <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom
-                HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top:
-                    60px;</code>
-                on the <code>.container</code>.</p>
-
-            <p>Back to <a href="../sticky-footer">the default sticky footer</a> minus the navbar.</p>
-        </div>
-
-        {% block body %}{% endblock body %}
-
-    {% endblock content %}
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
 
 </div>
 
-{% block footer %}
-    {% include "_footer.html" %}
-{% endblock footer %}
-
 {% include "_login_modal_form.html" %}
+{% include "_upload_modal_form.html" %}
 
 <!-- Placed at the end of the document so the pages load faster -->
-{% include "_scripts.html" %}
-<script>
-    {% block javascript %}{% endblock javascript %}
-</script>
+{% block js %}
+    {% include "_scripts.html" %}
+{% endblock js %}
 
 </body>
 </html>

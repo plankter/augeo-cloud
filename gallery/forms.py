@@ -4,9 +4,12 @@ from cloudinary.forms import CloudinaryJsFileField
 
 from .models import Photo
 
-class PhotoForm(ModelForm):
+
+class PhotoDirectForm(ModelForm):
+    image = CloudinaryJsFileField(
+        options={
+            'eager': [{'crop': 'fit', 'width': 240}]
+        })
+
     class Meta:
         model = Photo
-
-class PhotoDirectForm(PhotoForm):
-    image = CloudinaryJsFileField()

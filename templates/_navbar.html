@@ -17,6 +17,7 @@
             </ul>
             <div class="nav navbar-btn navbar-right btn-group">
               {% if user.is_authenticated %}
+                <a data-toggle="modal" href="#uploadModal" class="btn btn-default">Upload</a>
                 <a class="btn btn-default" href={% url 'accounts:logout' %}>Logout</a>
               {% else %}
                 <a data-toggle="modal" href="#loginModal" class="btn btn-default">Log in</a>

@@ -1,30 +1,62 @@
 {% extends "base.html" %}
 
-{% block body %}
+{% block content %}
+    <div id="container" class="js-masonry" data-masonry-options='{ "columnWidth": 250, "itemSelector": ".item", "gutter": 15, "isFitWidth": true }'>
+        {% include page_template %}
+    </div>
+{% endblock content %}
 
-  <div class="photos">
-    <p>
-      Following are the images uploaded by you. You can also upload more pictures.
+{% block js %}
+    {{ block.super }}
+    <script>
+        $.endlessPaginate({
+            paginateOnScroll: true,
+            paginateOnScrollMargin: 20
+        });
+    </script>
 
-      You can click on each picture to view its original size, and see more info about and additional transformations.
-      <a class="upload_link" href="{% url "gallery.views.upload" %}">Upload Images...</a>
-    </p>
+    <script>
 
-    {% if not photos.exists %}
-      <p>No images were uploaded yet.</p>
-    {% endif %}
+        $(function () {
+            $('.toggle_info').click(function () {
+                $(this).closest('.photo').toggleClass('show_more_info');
+                return false;
+            });
+        });
 
+        function prettydump(obj) {
+            ret = ""
+            $.each(obj, function (key, value) {
+                ret += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
+            });
+            return ret;
+        };
 
-  {% include page_template %}
-
-  </div>
-{% endblock %}
-
-{% block javascript %}
-  $(function () {
-    $('.toggle_info').click(function () {
-      $(this).closest('.photo').toggleClass('show_more_info');
-      return false;
-    });
-  });
-{% endblock javascript %}
+        $(function () {
+            $('#direct_upload input[type="file"]')
+                    .fileupload({
+                        dropZone: '#direct_upload',
+                        start: function () {
+                            $('.status_value').text('Starting direct upload...');
+                        },
+                        progress: function () {
+                            $('.status_value').text('Uploading...');
+                        }
+                    })
+                    .on('cloudinarydone', function (e, data) {
+                        $('.status_value').text('Updating backend...');
+                        $.post(this.form.action, $(this.form).serialize()).always(function (result, status, jqxhr) {
+                            $('.status_value').text(result.errors ? JSON.stringify(result.errors) : status);
+                        });
+                        var info = $('<div class="uploaded_info"/>');
+                        $(info).append($('<div class="data"/>').append(prettydump(data.result)));
+                        $(info).append($('<div class="image"/>').append(
+                                $.cloudinary.image(data.result.public_id, {
+                                    format: data.result.format, width: 150, height: 150, crop: "fill"
+                                })
+                        ));
+                        $('.uploaded_info_holder').append(info);
+                    });
+        });
+    </script>
+{% endblock js %}

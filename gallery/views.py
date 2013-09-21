@@ -8,7 +8,7 @@ from cloudinary.forms import cl_init_js_callbacks
 from endless_pagination.views import AjaxListView
 
 from .models import Photo
-from .forms import PhotoForm, PhotoDirectForm
+from .forms import PhotoDirectForm
 
 
 def filter_nones(d):
@@ -40,28 +40,6 @@ class PhotoList(AjaxListView):
         context = super(PhotoList, self).get_context_data(**kwargs)
         context['samples'] = self.samples
         return context
-
-
-def upload(request):
-    context = dict(
-        # Form demonstrating backend upload
-        backend_form = PhotoForm(),
-        # Form demonstrating direct upload
-        direct_form = PhotoDirectForm(),
-    )
-    # When using direct upload - the following call in necessary to update the
-    # form's callback url
-    cl_init_js_callbacks(context['direct_form'], request)
-
-    if request.method == 'POST':
-        # Only backend upload should be posting here
-        form = PhotoForm(request.POST, request.FILES)
-        context['posted'] = form.instance
-        if form.is_valid():
-            # Uploads image and creates a model instance for it
-            form.save()
-
-    return render(request, 'upload.html', context)
 
 
 @csrf_exempt
