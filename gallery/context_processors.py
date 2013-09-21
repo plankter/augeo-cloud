@@ -10,7 +10,7 @@ def consts(request):
             ]
         ),
         THUMBNAIL = {
-            "class": "thumbnail", "crop": "fit", "width": 240,
+            "crop": "fit", "width": 240,
         },
         CLOUDINARY_CLOUD_NAME = cloudinary.config().cloud_name
     )

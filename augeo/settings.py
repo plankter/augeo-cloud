@@ -238,6 +238,7 @@ AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_QUERYSTRING_AUTH = False
+AWS_PRELOAD_METADATA = True
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
@@ -326,7 +327,7 @@ cloudinary.config(
 
 # Django Endless Pagination start
 
-ENDLESS_PAGINATION_PER_PAGE = 5
+ENDLESS_PAGINATION_PER_PAGE = 50
 ENDLESS_PAGINATION_LOADING = """<img src="https://s3-eu-west-1.amazonaws.com/augeo/img/loader.gif" alt="Loading..." />"""
 
 # Django Endless Pagination end

@@ -1,14 +1,14 @@
 {% load endless %}
 {% load cloudinary %}
 
-{% paginate photos %}
+{% lazy_paginate photos %}
 {% for photo in photos %}
     <div class="item">
         <a href="{{ photo.image.url }}" target="_blank">
             {# Renders an IMG tag for a CloudinaryImage objects. #}
             {# THUMBNAIL defined in context_processors #}
             {% cloudinary photo.image THUMBNAIL %}
-            <div>{{ photo.image.public_id }} - {{ photo.title }}</div>
+            <p>{{ photo.image.public_id }} - {{ photo.title }}</p>
         </a>
     </div>
 {% endfor %}

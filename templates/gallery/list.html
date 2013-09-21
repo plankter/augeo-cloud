@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div id="container" class="js-masonry" data-masonry-options='{ "columnWidth": 250, "itemSelector": ".item", "gutter": 15, "isFitWidth": true }'>
+    <div id="container" class="js-masonry" data-masonry-options='{ "columnWidth": 270, "itemSelector": ".item", "gutter": 15, "isFitWidth": true }'>
         {% include page_template %}
     </div>
 {% endblock content %}
@@ -9,19 +9,12 @@
 {% block js %}
     {{ block.super }}
     <script>
-        $.endlessPaginate({
+        $('#container').endlessPaginate({
             paginateOnScroll: true,
-            paginateOnScrollMargin: 20
-        });
-    </script>
-
-    <script>
-
-        $(function () {
-            $('.toggle_info').click(function () {
-                $(this).closest('.photo').toggleClass('show_more_info');
-                return false;
-            });
+            containerSelector: '#container',
+            onCompleted: function(context, fragment) {
+{#                $('#container').masonry();#}
+            }
         });
 
         function prettydump(obj) {
