@@ -1,4 +1,5 @@
 import cloudinary
+
 def consts(request):
     return dict(
         ICON_EFFECTS = dict(

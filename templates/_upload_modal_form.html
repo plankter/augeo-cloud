@@ -18,7 +18,7 @@
                         <a href="{% url 'home' %}" class="back_link">Back to list...</a>
                     </div>
 
-                    <form role="form" action="{% url "gallery.views.direct_upload_complete" %}" method="post">
+                    <form role="form" action="{% url 'core.views.direct_upload_complete' %}" method="post">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="title">Title</label>

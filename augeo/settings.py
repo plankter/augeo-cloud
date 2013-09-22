@@ -116,7 +116,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(BASE_DIR, '..', 'templates'),
-    os.path.join(BASE_DIR, '..', 'templates', 'gallery'),
+    os.path.join(BASE_DIR, '..', 'templates', 'core'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -130,7 +130,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
     'pinry.core.context_processors.template_settings',
 
-    'gallery.context_processors.consts',
+    'core.context_processors.consts',
 
     'social.apps.django_app.context_processors.backends',
     'social.apps.django_app.context_processors.login_redirect',
@@ -182,14 +182,11 @@ INSTALLED_APPS = (
 
     'storages',
     'cloudinary',
-    'gallery',
+    'accounts',
+    'core',
     'pure_pagination',
 
     'taggit',
-    'compressor',
-    'django_images',
-    'pinry.core',
-    'pinry.users',
 )
 
 # A sample logging configuration. The only tangible logging
