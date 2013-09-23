@@ -182,9 +182,10 @@ INSTALLED_APPS = (
 
     'storages',
     'cloudinary',
-    'accounts',
+    'profiles',
     'core',
     'pure_pagination',
+    'bootstrapform',
 
     'taggit',
 )

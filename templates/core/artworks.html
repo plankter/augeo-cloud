@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load cloudinary %}
+
+{% block content %}
+    <div id="container">
+        {% for artwork in artworks %}
+            <div class="item">
+                <a href="{{ photo.image.url }}" target="_blank">
+                    {# Renders an IMG tag for a CloudinaryImage objects. #}
+                    {# THUMBNAIL defined in context_processors #}
+                    {% cloudinary photo.image THUMBNAIL %}
+                    <p>{{ photo.image.public_id }} - {{ photo.title }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    {% include "_pagination.html" %}
+{% endblock content %}
+
+{% block js %}
+    {{ block.super }}
+    <script>
+        var $container = $('#container');
+        // initialize
+        $container.masonry({
+            columnWidth: 270,
+            itemSelector: '.item',
+            gutter: 15,
+            isFitWidth: true,
+            isInitLayout: false
+        });
+
+        // layout Masonry again after all images have loaded
+        $container.imagesLoaded(function () {
+            $container.masonry();
+        });
+
+
+        $container.infinitescroll(
+                {
+                    navSelector: ".pagination",
+                    nextSelector: ".next",
+                    itemSelector: ".item",
+                    loading: {
+                        finishedMsg: "",
+                        img: "http://pathtoyour.com/loading.gif",
+                        msg: null,
+                        msgText: ""
+                    }
+                },
+                function (newProducts) {
+                    var $newProds = $(newProducts).css({"opacity": 0});
+                    $newProds.imagesLoaded(function () {
+                        $newProds.animate({"opacity": 1});
+                        $container.masonry("appended", $newProds, true);
+                    });
+                }
+        );
+
+
+        function prettydump(obj) {
+            ret = ""
+            $.each(obj, function (key, value) {
+                ret += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
+            });
+            return ret;
+        }
+
+        $(function () {
+            $('#direct_upload input[type="file"]')
+                    .fileupload({
+                        dropZone: '#direct_upload',
+                        start: function () {
+                            $('.status_value').text('Starting direct upload...');
+                        },
+                        progress: function () {
+                            $('.status_value').text('Uploading...');
+                        }
+                    })
+                    .on('cloudinarydone', function (e, data) {
+                        $('.status_value').text('Updating backend...');
+                        $.post(this.form.action, $(this.form).serialize()).always(function (result, status, jqxhr) {
+                            $('.status_value').text(result.errors ? JSON.stringify(result.errors) : status);
+                        });
+                        var info = $('<div class="uploaded_info"/>');
+                        $(info).append($('<div class="data"/>').append(prettydump(data.result)));
+                        $(info).append($('<div class="image"/>').append(
+                                $.cloudinary.image(data.result.public_id, {
+                                    format: data.result.format, width: 150, height: 150, crop: "fill"
+                                })
+                        ));
+                        $('.uploaded_info_holder').append(info);
+                    });
+        });
+    </script>
+{% endblock js %}

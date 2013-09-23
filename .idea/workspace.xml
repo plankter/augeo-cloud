@@ -2,48 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gallery/models.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gallery/__init__.py" afterPath="$PROJECT_DIR$/core/models.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gallery/admin.py" afterPath="$PROJECT_DIR$/core/admin.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gallery/context_processors.py" afterPath="$PROJECT_DIR$/core/context_processors.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gallery/forms.py" afterPath="$PROJECT_DIR$/core/forms.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gallery/views.py" afterPath="$PROJECT_DIR$/core/views.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/gallery/list.html" afterPath="$PROJECT_DIR$/templates/core/list.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/gallery/upload.html" afterPath="$PROJECT_DIR$/templates/core/upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/accounts/__init__.py" afterPath="$PROJECT_DIR$/accounts/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/__init__.py" afterPath="$PROJECT_DIR$/core/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/core/artwork_form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/core/photos.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/urls.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/accounts/__init__.py" afterPath="$PROJECT_DIR$/profiles/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/accounts/forms.py" afterPath="$PROJECT_DIR$/profiles/forms.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/accounts/models.py" afterPath="$PROJECT_DIR$/profiles/models.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/accounts/urls.py" afterPath="$PROJECT_DIR$/profiles/urls.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/accounts/views.py" afterPath="$PROJECT_DIR$/profiles/views.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/accounts/login.html" afterPath="$PROJECT_DIR$/templates/profiles/login.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/core/list.html" afterPath="$PROJECT_DIR$/templates/core/artworks.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/_login_modal_form.html" afterPath="$PROJECT_DIR$/templates/_login_modal_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/_navbar.html" afterPath="$PROJECT_DIR$/templates/_navbar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/_upload_modal_form.html" afterPath="$PROJECT_DIR$/templates/_upload_modal_form.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/augeo.css" afterPath="$PROJECT_DIR$/static/css/augeo.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/forms.py" afterPath="$PROJECT_DIR$/core/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pinry/core/forms.py" afterPath="$PROJECT_DIR$/pinry/core/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/models.py" afterPath="$PROJECT_DIR$/core/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/settings.py" afterPath="$PROJECT_DIR$/augeo/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/urls.py" afterPath="$PROJECT_DIR$/augeo/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/views.py" afterPath="$PROJECT_DIR$/core/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="augeo-cloud.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379879390569" ignored="false" />
+    <file path="/Dummy.txt" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379960560726" ignored="false" />
     <file path="/Procfile" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378084873806" ignored="false" />
-    <file path="/settings.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379878569273" ignored="false" />
+    <file path="/settings.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379962450956" ignored="false" />
     <file path="/Django Console" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378410706077" ignored="false" />
     <file path="/Python Console" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378410718351" ignored="false" />
-    <file path="/models.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379878419007" ignored="false" />
+    <file path="/models.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379972685897" ignored="false" />
     <file path="/base.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379786114763" ignored="false" />
-    <file path="/urls.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379877709754" ignored="false" />
+    <file path="/urls.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379966870775" ignored="false" />
     <file path="/a.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379268051522" ignored="false" />
     <file path="/login.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1378668541283" ignored="false" />
-    <file path="/views.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379719157998" ignored="false" />
+    <file path="/views.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379971830771" ignored="false" />
     <file path="/navbar.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379283209859" ignored="false" />
     <file path="/footer.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379281464271" ignored="false" />
     <file path="/login_modal_form.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379285249587" ignored="false" />
     <file path="/list.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379851300000" ignored="false" />
     <file path="/upload.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379878628689" ignored="false" />
     <file path="/list_page.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379849349251" ignored="false" />
-    <file path="/_upload_modal_form.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379878602287" ignored="false" />
-    <file path="/_navbar.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379786094288" ignored="false" />
-    <file path="/forms.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379877415130" ignored="false" />
+    <file path="/_upload_modal_form.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379964837284" ignored="false" />
+    <file path="/_navbar.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379962392867" ignored="false" />
+    <file path="/forms.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379966287448" ignored="false" />
     <file path="/context_processors.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379794574740" ignored="false" />
     <file path="/augeo.css" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379798983216" ignored="false" />
     <file path="/_pagination.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379852080728" ignored="false" />
     <file path="/admin.py" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379877309229" ignored="false" />
+    <file path="/_login_modal_form.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379962497855" ignored="false" />
+    <file path="/artworks.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379965264600" ignored="false" />
+    <file path="/artwork_form.html" changelist="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" time="1379971126466" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,105 +79,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="settings.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/augeo/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="186" column="22" selection-start="5877" selection-end="5877" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="35" selection-start="863" selection-end="878" vertical-scroll-proportion="0.0">
+            <state line="43" column="58" selection-start="1352" selection-end="1352" vertical-scroll-proportion="0.5456853">
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pinry/core/models.py">
+      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="55" selection-start="1415" selection-end="1433" vertical-scroll-proportion="0.0">
+            <state line="14" column="1" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#0#42#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pinry/core/views.py">
+        <entry file="file://$PROJECT_DIR$/core/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="22" column="28" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#0#44#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pinry/core/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pinry/core/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pin_form.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pinry/templates/core/pin_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pin-form.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pinry/static/js/pin-form.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="api.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pinry/core/api.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="19" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.74050635">
-              <folding>
-                <element signature="e#0#27#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="29" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -190,21 +130,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/templates/_scripts.html" />
-        <option value="$PROJECT_DIR$/templates/_pagination.html" />
-        <option value="$PROJECT_DIR$/templates/gallery/list.html" />
-        <option value="$PROJECT_DIR$/gallery/views.py" />
-        <option value="$PROJECT_DIR$/gallery/models.py" />
-        <option value="$PROJECT_DIR$/core/views.py" />
-        <option value="$PROJECT_DIR$/core/context_processors.py" />
-        <option value="$PROJECT_DIR$/core/forms.py" />
-        <option value="$PROJECT_DIR$/core/admin.py" />
-        <option value="$PROJECT_DIR$/templates/core/upload.html" />
-        <option value="$PROJECT_DIR$/augeo/urls.py" />
+        <option value="$PROJECT_DIR$/profiles/urls.py" />
+        <option value="$PROJECT_DIR$/templates/_login_modal_form.html" />
+        <option value="$PROJECT_DIR$/pinry/core/forms.py" />
         <option value="$PROJECT_DIR$/templates/_upload_modal_form.html" />
-        <option value="$PROJECT_DIR$/core/__init__.py" />
-        <option value="$PROJECT_DIR$/accounts/__init__.py" />
+        <option value="$PROJECT_DIR$/augeo/urls.py" />
+        <option value="$PROJECT_DIR$/templates/core/artworks.html" />
+        <option value="$PROJECT_DIR$/templates/core/artwork_add.html" />
+        <option value="$PROJECT_DIR$/core/urls.py" />
+        <option value="$PROJECT_DIR$/templates/_navbar.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/profiles/views.py" />
         <option value="$PROJECT_DIR$/augeo/settings.py" />
+        <option value="$PROJECT_DIR$/templates/core/artwork_form.html" />
+        <option value="$PROJECT_DIR$/core/forms.py" />
+        <option value="$PROJECT_DIR$/core/views.py" />
         <option value="$PROJECT_DIR$/core/models.py" />
       </list>
     </option>
@@ -270,24 +210,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pinry" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pinry" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -302,7 +224,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pinry" />
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="profiles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo-cloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo-cloud" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -327,14 +263,6 @@
               <option name="myItemId" value="pinry" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -350,7 +278,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,20 +328,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="accounts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -431,8 +345,8 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -445,10 +359,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/core" />
+      <recent name="$PROJECT_DIR$/templates/core" />
       <recent name="$PROJECT_DIR$/accounts" />
       <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/static/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/js" />
@@ -476,29 +390,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="augeo-cloud" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -520,6 +411,29 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="augeo-cloud" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -643,11 +557,11 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20769848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22614275" sideWeight="0.6749175" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22814755" sideWeight="0.6752066" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39917356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289256" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3250825" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3247934" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -727,106 +641,24 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="34" selection-start="579" selection-end="579" vertical-scroll-proportion="0.4758883">
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augeo/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="752" selection-end="752" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augeo/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augeo/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="186" column="22" selection-start="5877" selection-end="5877" vertical-scroll-proportion="0.0">
+        <state line="162" column="0" selection-start="5345" selection-end="5345" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/forms.py">
+    <entry file="file://$PROJECT_DIR$/templates/_upload_modal_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="29" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
+        <state line="20" column="94" selection-start="1009" selection-end="1009" vertical-scroll-proportion="0.39215687">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/core/artworks.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="35" selection-start="863" selection-end="878" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pinry/core/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="55" selection-start="1415" selection-end="1433" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pinry/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pinry/core/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pinry/core/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
+        <state line="95" column="17" selection-start="637" selection-end="3610" vertical-scroll-proportion="1.862745">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -839,16 +671,96 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pinry/static/js/pin-form.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6159695">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pinry/templates/includes/pin_form.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pinry/core/api.py">
+    <entry file="file://$PROJECT_DIR$/templates/profiles/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="19" selection-start="1452" selection-end="1452" vertical-scroll-proportion="0.74050635">
+        <state line="6" column="49" selection-start="134" selection-end="162" vertical-scroll-proportion="0.11764706">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/core/artwork_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="33" selection-start="747" selection-end="747" vertical-scroll-proportion="0.50980395">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="28" selection-start="880" selection-end="880" vertical-scroll-proportion="0.37254903">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/core/photos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="24" selection-start="73" selection-end="93" vertical-scroll-proportion="0.078431375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pinry/core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="33" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.608365">
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="21" selection-start="380" selection-end="380" vertical-scroll-proportion="0.36121672">
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pinry/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="28" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="1" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="58" selection-start="1352" selection-end="1352" vertical-scroll-proportion="0.5456853">
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

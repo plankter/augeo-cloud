@@ -5,6 +5,11 @@ from cloudinary.forms import CloudinaryJsFileField
 from .models import Photo, Artwork
 
 
+class ArtworkForm(ModelForm):
+    class Meta:
+        model = Artwork
+
+
 class PhotoForm(ModelForm):
     image = CloudinaryJsFileField(
         options={
@@ -13,8 +18,3 @@ class PhotoForm(ModelForm):
 
     class Meta:
         model = Photo
-
-
-class ArtworkForm(ModelForm):
-    class Meta:
-        model = Artwork

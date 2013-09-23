@@ -8,6 +8,9 @@ FIELD_NAME_MAPPING = {
 }
 
 
+
+
+
 class ImageForm(forms.ModelForm):
     def add_prefix(self, field_name):
         field_name = FIELD_NAME_MAPPING.get(field_name, field_name)

@@ -15,7 +15,7 @@
     <link href="{% static "css/social-buttons-3.css" %}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{% static "css/augeo.css" %}" rel="stylesheet">
-{#    <link href="{% static "css/photo_album.css" %}" rel="stylesheet">#}
+    {#    <link href="{% static "css/photo_album.css" %}" rel="stylesheet">#}
 
     {% include "_ie.html" %}
 </head>
@@ -35,8 +35,12 @@
 
 </div>
 
-{% include "_login_modal_form.html" %}
-{% include "_upload_modal_form.html" %}
+{% if user.is_authenticated %}
+    {% include "_upload_modal_form.html" %}
+{% else %}
+    {% include "_login_modal_form.html" %}
+{% endif %}
+
 
 <!-- Placed at the end of the document so the pages load faster -->
 {% block js %}

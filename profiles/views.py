@@ -14,7 +14,7 @@ from django.utils.functional import lazy
 def logout_user(request):
     logout(request)
     messages.success(request, 'You have successfully logged out.')
-    return HttpResponseRedirect(reverse('home'))
+    return HttpResponseRedirect(reverse('core:home'))
 
 
 def private(request):

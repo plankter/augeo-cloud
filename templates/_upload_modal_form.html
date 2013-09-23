@@ -15,10 +15,10 @@
                         <span class="status_value">Idle</span>
                     </div>
                     <div class="uploaded_info_holder">
-                        <a href="{% url 'home' %}" class="back_link">Back to list...</a>
+                        <a href="{% url 'core:home' %}" class="back_link">Back to list...</a>
                     </div>
 
-                    <form role="form" action="{% url 'core.views.direct_upload_complete' %}" method="post">
+                    <form role="form" action="{% url 'core:upload_complete' %}" method="post">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="title">Title</label>
