@@ -7,7 +7,6 @@ from taggit.managers import TaggableManager
 
 
 
-
 class Artwork(models.Model):
     title = models.CharField("Title", max_length=200, blank=True)
     author = models.CharField("Author", max_length=200, blank=True)
@@ -21,10 +20,6 @@ class Artwork(models.Model):
         return reverse('core:artworks')
 
     def __unicode__(self):
-        try:
-            public_id = self.image.public_id
-        except AttributeError:
-            public_id = ''
         return "<%s by %s>" % (self.title, self.author)
 
 

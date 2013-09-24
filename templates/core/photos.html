@@ -58,39 +58,58 @@
         );
 
 
-        function prettydump(obj) {
-            ret = ""
-            $.each(obj, function (key, value) {
-                ret += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
-            });
-            return ret;
-        }
-
-        $(function () {
-            $('#direct_upload input[type="file"]')
+        $(document).ready(function () {
+            // Cloudinary jQuery integration library uses jQuery File Upload widget
+            // (see http://blueimp.github.io/jQuery-File-Upload/).
+            // Any file input field with cloudinary-fileupload class is automatically
+            // wrapped using the File Upload widget and configured for Cloudinary uploads.
+            // You can further customize the configuration using .fileupload method
+            // as we do below.
+            $(".cloudinary-fileupload")
                     .fileupload({
-                        dropZone: '#direct_upload',
-                        start: function () {
-                            $('.status_value').text('Starting direct upload...');
+                        // Uncomment the following lines to enable client side image resizing and valiation.
+                        // Make sure cloudinary/processing is included the js file
+                        //disableImageResize: false,
+                        //imageMaxWidth: 800,
+                        //imageMaxHeight: 600,
+                        //acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp|ico)$/i,
+                        //maxFileSize: 20000000, // 20MB
+                        dropZone: "#dropzone",
+                        start: function (e) {
+                            $(".status").text("Starting upload...");
                         },
-                        progress: function () {
-                            $('.status_value').text('Uploading...');
+                        progress: function (e, data) {
+                            $(".status").text("Uploading... " + Math.round((data.loaded * 100.0) / data.total) + "%");
+                        },
+                        fail: function (e, data) {
+                            $(".status").text("Upload failed");
                         }
                     })
-                    .on('cloudinarydone', function (e, data) {
-                        $('.status_value').text('Updating backend...');
-                        $.post(this.form.action, $(this.form).serialize()).always(function (result, status, jqxhr) {
-                            $('.status_value').text(result.errors ? JSON.stringify(result.errors) : status);
-                        });
-                        var info = $('<div class="uploaded_info"/>');
-                        $(info).append($('<div class="data"/>').append(prettydump(data.result)));
-                        $(info).append($('<div class="image"/>').append(
+                    .off("cloudinarydone").on("cloudinarydone", function (e, data) {
+                        $("#photo_bytes").val(data.result.bytes);
+                        $(".status").text("");
+                        $(".preview").html(
                                 $.cloudinary.image(data.result.public_id, {
-                                    format: data.result.format, width: 150, height: 150, crop: "fill"
+                                    format: data.result.format, width: 50, height: 50, crop: "fit"
                                 })
-                        ));
-                        $('.uploaded_info_holder').append(info);
+                        );
+                        view_upload_details(data.result);
                     });
         });
+
+        function view_upload_details(upload) {
+            // Build an html table out of the upload object
+            var rows = [];
+            $.each(upload, function (k, v) {
+                rows.push(
+                        $("<tr>")
+                                .append($("<td>").text(k))
+                                .append($("<td>").text(JSON.stringify(v))));
+            });
+            $("#info").html(
+                    $("<div class=\"upload_details\">")
+                            .append("<h2>Upload metadata:</h2>")
+                            .append($("<table>").append(rows)));
+        }
     </script>
 {% endblock js %}

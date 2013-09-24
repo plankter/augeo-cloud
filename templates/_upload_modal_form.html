@@ -18,6 +18,9 @@
                         <a href="{% url 'core:home' %}" class="back_link">Back to list...</a>
                     </div>
 
+                    <div id="info"></div>
+                    <div id="dropzone" class="fade well">Drop files here</div>
+
                     <form role="form" action="{% url 'core:upload_complete' %}" method="post">
                         {% csrf_token %}
                         <div class="form-group">

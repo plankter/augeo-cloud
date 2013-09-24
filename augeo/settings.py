@@ -91,7 +91,6 @@ SECRET_KEY = os.environ['SECRET_KEY']
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -185,7 +184,7 @@ INSTALLED_APPS = (
     'profiles',
     'core',
     'pure_pagination',
-    'bootstrapform',
+    'crispy_forms',
 
     'taggit',
 )
@@ -321,3 +320,5 @@ cloudinary.config(
 )
 
 # Cloudinary end
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
