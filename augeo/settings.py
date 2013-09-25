@@ -102,6 +102,8 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
     'pinry.users.middleware.Public',
 )
 
@@ -179,6 +181,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 
+    'debug_toolbar',
     'storages',
     'cloudinary',
     'profiles',
