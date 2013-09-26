@@ -11,8 +11,19 @@ ADMINS = (
 MANAGERS = ADMINS
 
 import dj_database_url
+#DATABASES = {
+#    'default': dj_database_url.config(default='postgresql://localhost/augeo')
+#}
+
 DATABASES = {
-    'default': dj_database_url.config(default='postgresql://localhost/augeo')
+    'default': {
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
+        'NAME': 'augeo',
+        'USER': 'postgres',
+        'PASSWORD': 'rauforge',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
 }
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
