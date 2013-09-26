@@ -13,26 +13,26 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link href="{% static "css/social-buttons-3.css" %}" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="{% static "css/augeo.css" %}" rel="stylesheet">
-    {#    <link href="{% static "css/photo_album.css" %}" rel="stylesheet">#}
 
-    {% include "_ie.html" %}
+    <link href="{% static "css/augeo.css" %}" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="{% static "js/html5shiv.js" %}"></script>
+    <script src="{% static "js/respond.min.js" %}"></script>
+    <![endif]-->
 </head>
 
 <body>
 
 <!-- Wrap all page content here -->
 <div id="wrap">
-
     {% include "_navbar.html" %}
-
     <!-- Begin page content -->
     <div class="container">
         {% block content %}
         {% endblock content %}
     </div>
-
 </div>
 
 {% if user.is_authenticated %}
