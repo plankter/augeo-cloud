@@ -2,16 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/common.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/dev.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/prod.py" />
-      <change type="DELETED" beforePath="C:\Users\Anton\Documents\Projects\augeo\augeo-cloud\templates\_ie.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/apps.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/auth.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/base.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/cache.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/cloudinary.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/crispy-forms.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/db.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/debug.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/django-debug-toolbar.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/django-storages.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/django-suit.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/email.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/fixtures.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/logging.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/media.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/messages.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/middleware.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/python-social-auth.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/security.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/sessions.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/static.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/templates.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augeo/settings.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augeo/settings/common.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augeo/settings/dev.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/augeo/settings/prod.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/settings/__init__.py" afterPath="$PROJECT_DIR$/augeo/settings/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/augeo-cloud.iml" afterPath="$PROJECT_DIR$/.idea/augeo-cloud.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manage.py" afterPath="$PROJECT_DIR$/manage.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/settings.py" afterPath="$PROJECT_DIR$/augeo/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/wsgi.py" afterPath="$PROJECT_DIR$/augeo/wsgi.py" />
     </list>
@@ -58,30 +79,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/core/models.py" />
-        <option value="$PROJECT_DIR$/templates/core/artwork_form.html" />
-        <option value="$PROJECT_DIR$/templates/_upload_modal_form.html" />
-        <option value="$PROJECT_DIR$/static/css/augeo.css" />
-        <option value="$PROJECT_DIR$/templates/core/photos.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/templates/_ie.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/augeo/settings/__init__.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/apps.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/logging.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/messages.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/sessions.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/auth.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/security.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/debug_toolbar.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/django_suit.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/python-social-auth.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/cloudinary.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/crispy-forms.py" />
         <option value="$PROJECT_DIR$/augeo/settings.py" />
-        <option value="$PROJECT_DIR$/augeo/settings/prod.py" />
-        <option value="$PROJECT_DIR$/augeo/settings/dev.py" />
-        <option value="$PROJECT_DIR$/augeo/settings/common.py" />
-        <option value="$PROJECT_DIR$/augeo/wsgi.py" />
-        <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/django-storages.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/__init__.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/templates.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/base.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="y" value="22" />
+    <option name="width" value="2560" />
+    <option name="height" value="1330" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -109,6 +129,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -124,20 +145,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -173,9 +180,30 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo-cloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo-cloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -184,16 +212,17 @@
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="com.jetbrains.django.DjangoModulesConfigurable" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/augeo/settings/dev.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/augeo/settings/__init__.py" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -202,11 +231,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/augeo/settings" />
       <recent name="$PROJECT_DIR$/core" />
       <recent name="$PROJECT_DIR$/templates/core" />
       <recent name="$PROJECT_DIR$/accounts" />
       <recent name="$PROJECT_DIR$/static/js" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/js" />
@@ -301,27 +330,7 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="augeo-cloud" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
@@ -347,7 +356,27 @@
       <option name="customRunCommand" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="augeo-cloud" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -403,7 +432,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="augeo.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/../venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -475,19 +504,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="0" y="22" width="2560" height="1330" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32884398" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838285" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20769848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2297619" sideWeight="0.67564535" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24184567" sideWeight="0.6765677" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39917356" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32435465" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32435465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32343236" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -520,103 +549,104 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/core/artwork_form.html">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/security.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1581" />
+        <state line="3" column="44" selection-start="153" selection-end="153" vertical-scroll-proportion="0.038893692" vertical-offset="0" max-vertical-offset="1157" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/core/photos.html">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/sessions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="29" selection-start="894" selection-end="894" vertical-scroll-proportion="0.0" vertical-offset="476" max-vertical-offset="2040" />
+        <state line="1" column="61" selection-start="135" selection-end="135" vertical-scroll-proportion="0.012964563" vertical-offset="0" max-vertical-offset="1157" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/django-debug-toolbar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="576" />
+        <state line="12" column="1" selection-start="348" selection-end="348" vertical-scroll-proportion="0.15557477" vertical-offset="0" max-vertical-offset="1157" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/django-suit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="8" selection-start="40" selection-end="40" vertical-scroll-proportion="0.11805555" vertical-offset="0" max-vertical-offset="576" />
+        <state line="6" column="1" selection-start="187" selection-end="187" vertical-scroll-proportion="0.077787384" vertical-offset="0" max-vertical-offset="1157" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/_navbar.html">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/python-social-auth.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="865" />
+        <state line="0" column="22" selection-start="0" selection-end="22" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="315" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/_footer.html">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/cloudinary.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="865" />
+        <state line="1" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.012964563" vertical-offset="0" max-vertical-offset="1157" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/django-storages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="42" selection-start="361" selection-end="361" vertical-scroll-proportion="0.20262218" vertical-offset="0" max-vertical-offset="952" />
+        <state line="1" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="0.012964563" vertical-offset="0" max-vertical-offset="1157" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/crispy-forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="22" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <folding />
-        </state>
+        <state line="5" column="35" selection-start="139" selection-end="139" vertical-scroll-proportion="0.064822815" vertical-offset="0" max-vertical-offset="1157" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/augeo/settings/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="865" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../venv/Lib/site-packages/boto/s3/cors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.8277457" vertical-offset="1581" max-vertical-offset="3672" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augeo/settings/prod.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="36" selection-start="3695" selection-end="3695" vertical-scroll-proportion="1.7239584" vertical-offset="911" max-vertical-offset="2006">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augeo/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="67" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.4446461" vertical-offset="112" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augeo/settings/dev.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="306" selection-end="306" vertical-scroll-proportion="-0.07985481" vertical-offset="248" max-vertical-offset="1088">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="0.30852994" vertical-offset="0" max-vertical-offset="551">
+        <state line="14" column="34" selection-start="473" selection-end="473" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
           <folding>
-            <element signature="e#22#31#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/augeo/settings/common.py">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/media.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="16" selection-start="2789" selection-end="2789" vertical-scroll-proportion="-4.907441" vertical-offset="4234" max-vertical-offset="5270">
+        <state line="3" column="21" selection-start="127" selection-end="127" vertical-scroll-proportion="0.056818184" vertical-offset="0" max-vertical-offset="792">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/augeo/settings.py">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/static.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="24" selection-start="489" selection-end="489" vertical-scroll-proportion="0.581749" vertical-offset="255" max-vertical-offset="5457">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/templates.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/logging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="71" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/cache.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/messages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="792">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

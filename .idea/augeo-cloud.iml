@@ -4,14 +4,14 @@
     <facet type="django" name="Django">
       <configuration>
         <option name="rootFolder" value="$MODULE_DIR$" />
-        <option name="settingsModule" value="augeo/settings/dev.py" />
+        <option name="settingsModule" value="augeo/settings/__init__.py" />
         <option name="manageScript" value="manage.py" />
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 2.7.5 virtualenv at C:\Users\Anton\Documents\Projects\venv" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 2.7.5 virtualenv at ~/augeo/venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">
