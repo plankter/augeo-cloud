@@ -14,7 +14,7 @@ class Artwork(models.Model):
     published = models.DateTimeField("Published", auto_now_add=True)
     submitter = models.ForeignKey(User, editable=False)
 
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
 
     def get_absolute_url(self):
         return reverse('core:artworks')
@@ -25,7 +25,7 @@ class Artwork(models.Model):
 
 class Photo(models.Model):
     caption = models.CharField("Caption", max_length=200, blank=True)
-    image = CloudinaryField('Image')
+    image = CloudinaryField('Image', blank=True)
     artwork = models.ForeignKey(Artwork)
 
     def get_absolute_url(self):
@@ -36,4 +36,4 @@ class Photo(models.Model):
             public_id = self.image.public_id
         except AttributeError:
             public_id = ''
-        return "Photo <%s:%s>" % (self.caption, public_id)
+        return "<%s:%s>" % (self.caption, public_id)

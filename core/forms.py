@@ -1,4 +1,5 @@
 from django.forms import ModelForm
+from django.forms.models import inlineformset_factory
 
 from cloudinary.forms import CloudinaryJsFileField
 
@@ -18,3 +19,6 @@ class PhotoForm(ModelForm):
 
     class Meta:
         model = Photo
+
+
+ArtworkPhotoFormSet = inlineformset_factory(Artwork, Photo, form=PhotoForm)

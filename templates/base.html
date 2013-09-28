@@ -27,7 +27,7 @@
 
 <!-- Wrap all page content here -->
 <div id="wrap">
-    {% include "_navbar.html" %}
+    {% include "includes/_navbar.html" %}
     <!-- Begin page content -->
     <div class="container">
         {% block content %}
@@ -36,15 +36,15 @@
 </div>
 
 {% if user.is_authenticated %}
-    {% include "_upload_modal_form.html" %}
+    {% include "includes/_upload_modal_form.html" %}
 {% else %}
-    {% include "_login_modal_form.html" %}
+    {% include "includes/_login_modal_form.html" %}
 {% endif %}
 
 
 <!-- Placed at the end of the document so the pages load faster -->
 {% block js %}
-    {% include "_scripts.html" %}
+    {% include "includes/_scripts.html" %}
 {% endblock js %}
 
 </body>
