@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load cloudinary %}
+
+{% block content %}
+    <h1>{{ artwork.title }}</h1>
+    <h2>{{ artwork.artist }}</h2>
+
+    <a data-toggle="lightbox" href="#imageLightbox">
+        {% cloudinary artwork.get_photo.image width=800 crop="fit" class="img-thumbnail" %}
+    </a>
+
+    <div id="imageLightbox" class="lightbox hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class='lightbox-content'>
+            {% cloudinary artwork.get_photo.image width=800 crop="fit" %}
+            <div class="lightbox-caption"><p>Your caption here</p></div>
+        </div>
+    </div>
+
+    <p>Reporter: {{ artwork.submitter }}</p>
+    <p>Published: {{ artwork.published|date }}</p>
+{% endblock content %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/bootstrap-lightbox.min.js" %}"></script>
+{% endblock js %}

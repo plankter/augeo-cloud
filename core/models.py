@@ -4,23 +4,32 @@ from django.core.urlresolvers import reverse
 
 from cloudinary.models import CloudinaryField
 from taggit.managers import TaggableManager
+from uuslug import uuslug
 
 
 
 class Artwork(models.Model):
-    title = models.CharField("Title", max_length=200, blank=True)
-    author = models.CharField("Author", max_length=200, blank=True)
+    title = models.CharField("Title", max_length=200, blank=False, db_index=True)
+    slug = models.SlugField("Slug", max_length=50, blank=False, unique=True, db_index=True)
+    artist = models.CharField("Artist", max_length=200, blank=True)
     description = models.TextField("Description", blank=True, null=True)
     published = models.DateTimeField("Published", auto_now_add=True)
     submitter = models.ForeignKey(User, editable=False)
 
-    tags = TaggableManager(blank=True)
+    tags = TaggableManager("Tags", blank=True)
 
     def get_absolute_url(self):
-        return reverse('core:artworks')
+        return reverse('core:artwork_detail', kwargs={'slug': self.slug})
+
+    def get_photo(self):
+        return Photo.objects.get(artwork=self)
+
+    def save(self, *args, **kwargs):
+        self.slug = uuslug(self.title, instance=self, max_length=50, word_boundary=True)
+        super(Artwork, self).save(*args, **kwargs)
 
     def __unicode__(self):
-        return "<%s by %s>" % (self.title, self.author)
+        return "<%s by %s>" % (self.title, self.artist)
 
 
 class Photo(models.Model):

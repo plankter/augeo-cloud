@@ -8,40 +8,12 @@
         <div class="form-row">
             {{ form|crispy }}
         </div>
-        <fieldset class="formset">
-            <legend>Photos</legend>
-            {#            {{ formset|crispy }}#}
-
-
-            {{ formset.management_form }}
-            {% for form in formset %}
-                {{ form.id }}
-
-                <div id='direct_upload'>
-                    <!-- status box -->
-                    <div class="status">
-                        <span class="status_value">Idle</span>
-                    </div>
-
-                    <div id="info"></div>
-
-
-                        <div class="form-group">
-                            <label for="caption">Caption</label>
-                            <input name="caption" id="caption" type="text" class="form-control" placeholder="Caption" autofocus>
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Image</label>
-                            {% cloudinary_direct_upload_field request=request %}
-                        </div>
-
-                </div>
-            {% endfor %}
-
-
-        </fieldset>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <div class="form-row">
+            {{ photo_form|crispy }}
+        </div>
+        <button type="submit" class="btn btn-primary">Add Artwork</button>
     </form>
+    <div id="info"></div>
 {% endblock content %}
 
 {% block js %}
@@ -100,41 +72,5 @@
                             .append("<h2>Upload metadata:</h2>")
                             .append($("<table>").append(rows)));
         }
-
-
-        function prettydump(obj) {
-            ret = ""
-            $.each(obj, function (key, value) {
-                ret += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
-            });
-            return ret;
-        }
-
-        $(function () {
-            $('#direct_upload input[type="file"]')
-                    .fileupload({
-                        dropZone: '#direct_upload',
-                        start: function () {
-                            $('.status_value').text('Starting direct upload...');
-                        },
-                        progress: function () {
-                            $('.status_value').text('Uploading...');
-                        }
-                    })
-                    .on('cloudinarydone', function (e, data) {
-                        $('.status_value').text('Updating backend...');
-                        $.post(this.form.action, $(this.form).serialize()).always(function (result, status, jqxhr) {
-                            $('.status_value').text(result.errors ? JSON.stringify(result.errors) : status);
-                        });
-                        var info = $('<div class="uploaded_info"/>');
-                        $(info).append($('<div class="data"/>').append(prettydump(data.result)));
-                        $(info).append($('<div class="image"/>').append(
-                                $.cloudinary.image(data.result.public_id, {
-                                    format: data.result.format, width: 150, height: 150, crop: "fill"
-                                })
-                        ));
-                        $('.uploaded_info_holder').append(info);
-                    });
-        });
     </script>
 {% endblock js %}

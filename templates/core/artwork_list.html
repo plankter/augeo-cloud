@@ -5,11 +5,11 @@
     <div id="container">
         {% for artwork in artworks %}
             <div class="item">
-                <a href="{{ photo.image.url }}" target="_blank">
+                <a href="{{ artwork.get_absolute_url }}">
                     {# Renders an IMG tag for a CloudinaryImage objects. #}
                     {# THUMBNAIL defined in context_processors #}
-                    {% cloudinary photo.image THUMBNAIL %}
-                    <p>{{ photo.image.public_id }} - {{ photo.title }}</p>
+                    {% cloudinary artwork.get_photo.image THUMBNAIL %}
+                    <p>{{ artwork.title }} - {{ artwork.artist }}</p>
                 </a>
             </div>
         {% endfor %}
@@ -35,7 +35,6 @@
             $container.masonry();
         });
 
-
         $container.infinitescroll(
                 {
                     navSelector: ".pagination",
@@ -48,49 +47,13 @@
                         msgText: ""
                     }
                 },
-                function (newProducts) {
-                    var $newProds = $(newProducts).css({"opacity": 0});
-                    $newProds.imagesLoaded(function () {
-                        $newProds.animate({"opacity": 1});
-                        $container.masonry("appended", $newProds, true);
+                function (newItems) {
+                    var $newItems = $(newItems).css({"opacity": 0});
+                    $newItems.imagesLoaded(function () {
+                        $newItems.animate({"opacity": 1});
+                        $container.masonry("appended", $newItems, true);
                     });
                 }
         );
-
-
-        function prettydump(obj) {
-            ret = ""
-            $.each(obj, function (key, value) {
-                ret += "<tr><td>" + key + "</td><td>" + value + "</td></tr>";
-            });
-            return ret;
-        }
-
-        $(function () {
-            $('#direct_upload input[type="file"]')
-                    .fileupload({
-                        dropZone: '#direct_upload',
-                        start: function () {
-                            $('.status_value').text('Starting direct upload...');
-                        },
-                        progress: function () {
-                            $('.status_value').text('Uploading...');
-                        }
-                    })
-                    .on('cloudinarydone', function (e, data) {
-                        $('.status_value').text('Updating backend...');
-                        $.post(this.form.action, $(this.form).serialize()).always(function (result, status, jqxhr) {
-                            $('.status_value').text(result.errors ? JSON.stringify(result.errors) : status);
-                        });
-                        var info = $('<div class="uploaded_info"/>');
-                        $(info).append($('<div class="data"/>').append(prettydump(data.result)));
-                        $(info).append($('<div class="image"/>').append(
-                                $.cloudinary.image(data.result.public_id, {
-                                    format: data.result.format, width: 150, height: 150, crop: "fill"
-                                })
-                        ));
-                        $('.uploaded_info_holder').append(info);
-                    });
-        });
     </script>
 {% endblock js %}
