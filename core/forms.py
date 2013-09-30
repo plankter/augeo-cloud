@@ -14,6 +14,7 @@ class ArtworkForm(ModelForm):
 class PhotoForm(ModelForm):
     image = CloudinaryJsFileField(
         options={
+            'tags': ["augeo", "photo"],
             'eager': [{'crop': 'fit', 'width': 240}]
         })
 

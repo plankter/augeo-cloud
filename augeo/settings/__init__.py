@@ -28,6 +28,7 @@ if os.environ['DJANGO_SETTINGS_MODULE'] == 'augeo.settings':
         'components/cloudinary.py',
         'components/crispy-forms.py',
         'components/django-suit.py',
+        'components/disqus.py',
 
         # OVERRIDE SETTINGS
 

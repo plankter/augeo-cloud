@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% load cloudinary %}
+{% load disqus_tags %}
+
+{% disqus_dev %}
 
 {% block content %}
     <h1>{{ artwork.title }}</h1>
@@ -19,6 +22,11 @@
 
     <p>Reporter: {{ artwork.submitter }}</p>
     <p>Published: {{ artwork.published|date }}</p>
+
+    <a href="#" class="btn btn-primary">Edit</a>
+    <a href="#" class="btn btn-danger">Delete</a>
+
+    {% disqus_show_comments %}
 {% endblock content %}
 
 {% block js %}

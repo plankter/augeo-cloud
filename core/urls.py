@@ -1,15 +1,12 @@
 from django.conf.urls import patterns, url
 
-from .views import ArtworkList, ArtworkCreate, ArtworkUpdate, ArtworkDelete, ArtworkDetail, direct_upload_complete
+from .views import ArtworkList, ArtworkCreate, ArtworkUpdate, ArtworkDelete, ArtworkDetail
 
 
 urlpatterns = patterns('',
     url(r'^$', ArtworkList.as_view(), name='home'),
-    url(r'^artworks$', ArtworkList.as_view(), name='artworks'),
-    url(r'^artwork/(?P<slug>[-_\w]+)/$', ArtworkDetail.as_view(), name='artwork_detail'),
     url(r'artwork/add/$', ArtworkCreate.as_view(), name='artwork_add'),
-    url(r'^artwork/(?P<slug>[^\.]+)/edit/$', ArtworkUpdate.as_view(), name='artwork_update'),
-    url(r'artwork/(?P<pk>\d+)/delete/$', ArtworkDelete.as_view(), name='artwork_delete'),
-    # The direct upload functionality reports to this URL when an image is uploaded.
-    url(r'^upload/complete$', direct_upload_complete, name='upload_complete'),
+    url(r'^artwork/(?P<slug>[-_\w]+)/$', ArtworkDetail.as_view(), name='artwork_detail'),
+    url(r'^artwork/(?P<slug>[^\.]+)/edit/$', ArtworkUpdate.as_view(), name='artwork_edit'),
+    url(r'^artwork/(?P<slug>[^\.]+)/delete/$', ArtworkDelete.as_view(), name='artwork_delete'),
 )
