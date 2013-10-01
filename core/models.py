@@ -31,7 +31,7 @@ class Artwork(models.Model):
         return reverse('core:artwork_detail', kwargs={'slug': self.slug})
 
     def __unicode__(self):
-        return "<%s by %s>" % (self.title, self.artist)
+        return "%s by %s" % (self.title, self.artist)
 
 
 @receiver(pre_delete, sender=Artwork, dispatch_uid='artwork_pre_delete')
@@ -53,4 +53,4 @@ class Photo(models.Model):
             public_id = self.image.public_id
         except AttributeError:
             public_id = ''
-        return "<%s:%s>" % (self.caption, public_id)
+        return "%s:%s" % (self.caption, public_id)

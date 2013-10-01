@@ -58,10 +58,19 @@ class ArtworkDetail(DetailView):
     context_object_name = 'artwork'
 
 
-class ArtworkUpdate(UpdateView):
+class ArtworkUpdate(LoginRequiredMixin, UpdateView):
     model = Artwork
+    form_class = ArtworkForm
+    template_name = 'artwork_edit.html'
+    context_object_name = 'artwork'
+
+    def get_object(self, queryset=None):
+        return Artwork.objects.get(slug=self.kwargs['slug'])
+
+    def get_success_url(self):
+        return reverse_lazy('core:artwork_detail', kwargs={'slug': self.object.slug})
 
 
-class ArtworkDelete(DeleteView):
+class ArtworkDelete(LoginRequiredMixin, DeleteView):
     model = Artwork
-    success_url = reverse_lazy('artworks')
+    success_url = reverse_lazy('core:home')

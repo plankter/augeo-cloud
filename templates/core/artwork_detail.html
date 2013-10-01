@@ -23,11 +23,18 @@
     <p>Reporter: {{ artwork.submitter }}</p>
     <p>Published: {{ artwork.published|date }}</p>
 
-    <a href="#" class="btn btn-primary">Edit</a>
-    <a href="#" class="btn btn-danger">Delete</a>
+    {% if user.is_authenticated %}
+        {% if artwork.submitter == user %}
+            <a href="{% url 'core:artwork_edit' slug=artwork.slug %}" class="btn btn-primary">Edit</a>
+            <a data-toggle="modal" href="#deleteModal" class="btn btn-danger">Delete</a>
+            {% include "includes/_artwork_delete_confirmation.html" %}
+        {% endif %}
+    {% endif %}
 
     {% disqus_show_comments %}
 {% endblock content %}
+
+
 
 {% block js %}
     {{ block.super }}
