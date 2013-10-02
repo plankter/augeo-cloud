@@ -14,6 +14,7 @@
                 <li class="active"><a href="">Artworks</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href={% url 'core:ping' %}>Ping</a></li>
             </ul>
             <div class="nav navbar-btn navbar-right btn-group">
                 {% if user.is_authenticated %}

@@ -22,6 +22,8 @@ THIRD_PARTY_APPS = (
 
     'pure_pagination',
     'taggit',
+
+    'gunicorn',
 )
 
 LOCAL_APPS = (
