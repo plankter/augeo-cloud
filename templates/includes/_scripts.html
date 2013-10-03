@@ -9,21 +9,3 @@
 
 {% cloudinary_includes %}
 {% cloudinary_js_config %}
-
-<script>
-
-    $(document).ready(function() {
-            var source = new EventSource('/events/');
-            var events_dom = $("#events");
-            var greeting_dom = $("#greeting");
-
-            source.addEventListener('message', function(e) {
-                greeting_dom.html("<div>" + e.data + "</div>");
-            });
-
-            source.addEventListener("date", function(e) {
-                events_dom.append("<div>" + e.data + "</div>");
-            });
-        });
-
-</script>
