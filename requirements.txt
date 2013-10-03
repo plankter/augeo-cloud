@@ -24,6 +24,7 @@ newrelic==2.0.0.1
 oauthlib==0.6.0
 poster==0.8.2
 psycopg2==2.5.1
+pubnub==3.3.2
 pylibmc==1.2.3
 python-dateutil==1.5
 python-mimeparse==0.1.4

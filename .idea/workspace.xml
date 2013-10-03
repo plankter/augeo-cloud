@@ -2,67 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.bootstrap-growl.min.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/api.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/context_processors.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/forms.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/migrations/0001_initial.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/templatetags/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/templatetags/bootstrap_field.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/tests/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/tests/api.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/tests/forms.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/tests/helpers.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/tests/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/utils.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/core/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/settings/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/settings/development.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/settings/production.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/css/lightbox.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/css/messages.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/css/pinry.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/img/loader.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/js/bookmarklet.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/js/helpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/js/lightbox.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/js/messages.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/js/pin-form.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/static/js/pinry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/500.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/base.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/core/pin_form.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/core/pins.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/includes/bookmarklet_link.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/includes/field.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/includes/lightbox.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/includes/messages.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/includes/pin_form.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/includes/pins.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/users/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/users/private.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/templates/users/register.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/users/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/users/auth/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/users/auth/backends.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/users/forms.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/users/middleware.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/users/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/users/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/users/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pinry/users/views.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/includes/_scripts.html" afterPath="$PROJECT_DIR$/templates/includes/_scripts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events/views.py" afterPath="$PROJECT_DIR$/events/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="augeo-cloud.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,31 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_scripts.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_scripts.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/includes/_scripts.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="64" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="555">
+            <state line="5" column="64" selection-start="280" selection-end="280" vertical-scroll-proportion="0.06465517" vertical-offset="0" max-vertical-offset="1160">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="6" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="825">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/events/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="520" selection-end="520" vertical-scroll-proportion="0.2787162" vertical-offset="0" max-vertical-offset="1184">
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -195,15 +115,13 @@
               <option name="myItemId" value="augeo-cloud" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="&lt; Python 2.7.5 virtualenv at ~/augeo/venv &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -213,10 +131,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="augeo-cloud" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -710,20 +624,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/events/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="420">
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/augeo/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="788" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augeo/run_wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="26" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225" />
@@ -736,22 +636,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/augeo/settings/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="31" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.38006756" vertical-offset="0" max-vertical-offset="1184" />
+        <state line="30" column="31" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.38006756" vertical-offset="0" max-vertical-offset="1184">
+          <folding>
+            <element signature="e#0#50#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/augeo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="1" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240" />
+        <state line="16" column="1" selection-start="519" selection-end="519" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding>
+            <element signature="e#0#51#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="90" selection-start="134" selection-end="134" vertical-scroll-proportion="0.037926674" vertical-offset="0" max-vertical-offset="791" />
+        <state line="2" column="90" selection-start="134" selection-end="134" vertical-scroll-proportion="0.037926674" vertical-offset="0" max-vertical-offset="791">
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/events/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="38" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
+        <state line="5" column="38" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/_pagination.html">
@@ -764,11 +678,6 @@
         <state line="30" column="6" selection-start="1443" selection-end="1449" vertical-scroll-proportion="0.58670145" vertical-offset="0" max-vertical-offset="767" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="788" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/augeo/settings/components/security.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="791" />
@@ -779,16 +688,16 @@
         <state line="0" column="22" selection-start="0" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/_scripts.html">
+    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/pubnub-3.3.2-py2.7.egg-info/installed-files.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="64" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="555">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1184">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
+    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/pubnub-3.3.2-py2.7.egg-info/dependency_links.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="6" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="825">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1184">
           <folding />
         </state>
       </provider>
@@ -799,6 +708,27 @@
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="6" selection-start="1072" selection-end="1072" vertical-scroll-proportion="0.33620688" vertical-offset="0" max-vertical-offset="1160">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="768" selection-end="768" vertical-scroll-proportion="0.49408785" vertical-offset="0" max-vertical-offset="1184">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/_scripts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="64" selection-start="280" selection-end="280" vertical-scroll-proportion="0.06465517" vertical-offset="0" max-vertical-offset="1160">
+          <folding />
         </state>
       </provider>
     </entry>
