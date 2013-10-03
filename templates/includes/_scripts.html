@@ -3,9 +3,30 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src=http://cdn.pubnub.com/pubnub-3.5.43.min.js></script>
 <script src="{% static "js/jquery.infinitescroll.min.js" %}"></script>
+<script src="{% static "js/jquery.bootstrap-growl.min.js" %}"></script>
 <script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
 <script src="{% static "js/masonry.pkgd.min.js" %}"></script>
 
 {% cloudinary_includes %}
 {% cloudinary_js_config %}
+
+<script>
+    // Init
+    var pubnub = PUBNUB.init({
+        subscribe_key: 'sub-c-40f49aaa-2c51-11e3-80e9-02ee2ddab7fe'
+    })
+
+    // LISTEN
+    pubnub.subscribe({
+        channel: "augeo",
+        message: function (m) {
+            $.bootstrapGrowl(m.text, {
+                offset: {from: 'top', amount: 60}, // 'top', or 'bottom'
+                delay: 10000
+            });
+        },
+        restore: false
+    })
+</script>
