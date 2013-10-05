@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load cloudinary %}
+{% load crispy_forms_tags %}
+
+
+{% block navbar %}
+    <ul class="nav navbar-nav">
+        <li><a href={% url 'core:home' %}>Artworks</a></li>
+        <li class="active"><a href={% url 'auctions:auction_list' %}>Auctions</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href={% url 'events:ping' %}>Ping</a></li>
+    </ul>
+    <div class="nav navbar-btn navbar-right btn-group">
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary" href="{% url 'core:artwork_add' %}">Add Artwork</a>
+            <a class="btn btn-default" href={% url 'profiles:logout' %}>Logout</a>
+        {% else %}
+            <a data-toggle="modal" href="#loginModal" class="btn btn-default">Log in</a>
+            <a href="#" class="btn btn-default">Sign up</a>
+        {% endif %}
+    </div>
+{% endblock navbar %}
+
+
+{% block content %}
+    <form role="form" action="{% url "auctions:auction_edit" slug=artwork.slug %}" method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            {{ form|crispy }}
+        </div>
+        <div class="form-row">
+            {{ photo_form|crispy }}
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+    <div id="info"></div>
+{% endblock content %}

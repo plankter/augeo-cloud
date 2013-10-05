@@ -6,11 +6,13 @@
 {% disqus_dev %}
 
 {% block content %}
-    <h1>{{ artwork.title }}</h1>
-    <h2>{{ artwork.artist }}</h2>
+    <div class="page-header">
+        <h1><small>Title:</small> {{ artwork.title }}</h1>
+        <h2><small>Artist:</small> {{ artwork.artist }}</h2>
+    </div>
 
     <a data-toggle="lightbox" href="#imageLightbox">
-        {% cloudinary artwork.get_photo.image width=800 crop="fit" class="img-thumbnail" %}
+        {% cloudinary artwork.get_photo.image width=800 crop="fit" %}
     </a>
 
     <div id="imageLightbox" class="lightbox hide fade" tabindex="-1" role="dialog" aria-hidden="true">
@@ -25,13 +27,21 @@
 
     {% if user.is_authenticated %}
         {% if artwork.submitter == user %}
-            <a href="{% url 'core:artwork_edit' slug=artwork.slug %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'auctions:auction_add' slug=artwork.slug %}" class="btn btn-primary">Put on auction</a>
+            <a href="{% url 'core:artwork_edit' slug=artwork.slug %}" class="btn btn-default">Edit</a>
             <a data-toggle="modal" href="#deleteModal" class="btn btn-danger">Delete</a>
             {% include "includes/_artwork_delete_confirmation.html" %}
         {% endif %}
     {% endif %}
 
-    {% disqus_show_comments %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Comments</h3>
+        </div>
+        <div class="panel-body">
+            {% disqus_show_comments %}
+        </div>
+    </div>
 {% endblock content %}
 
 

@@ -42,11 +42,11 @@ def artwork_pre_delete(sender, instance, using, **kwargs):
 
 class Photo(models.Model):
     caption = models.CharField("Caption", max_length=200, blank=True)
-    image = CloudinaryField('Image', blank=True)
+    image = CloudinaryField("Image", blank=True)
     artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
-        return reverse('photo-detail', kwargs={'pk': self.pk})
+        return self.image.url
 
     def __unicode__(self):
         try:

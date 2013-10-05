@@ -11,15 +11,12 @@ from .forms import PhotoForm, ArtworkForm
 
 
 class ArtworkList(PaginationMixin, ListView):
-    model = Artwork
     template_name = 'artwork_list.html'
     context_object_name = 'artworks'
     paginate_by = 50
 
-    def get_context_data(self, **kwargs):
-        context = super(ArtworkList, self).get_context_data(**kwargs)
-        context['photos'] = Photo.objects.all()
-        return context
+    def get_queryset(self):
+        return Artwork.objects.all()
 
 
 class ArtworkCreate(LoginRequiredMixin, CreateView):

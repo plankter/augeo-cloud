@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% load cloudinary %}
 
+
 {% block navbar %}
     <ul class="nav navbar-nav">
-        <li class="active"><a href={% url 'core:home' %}>Artworks</a></li>
-        <li><a href={% url 'auctions:auction_list' %}>Auctions</a></li>
+        <li><a href={% url 'core:home' %}>Artworks</a></li>
+        <li class="active"><a href={% url 'auctions:auction_list' %}>Auctions</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href={% url 'events:ping' %}>Ping</a></li>
@@ -22,13 +23,11 @@
 
 {% block content %}
     <div id="container">
-        {% for artwork in artworks %}
+        {% for auction in auctions %}
             <div class="item">
-                <a href="{{ artwork.get_absolute_url }}">
-                    {# Renders an IMG tag for a CloudinaryImage objects. #}
-                    {# THUMBNAIL defined in context_processors #}
-                    {% cloudinary artwork.get_photo.image THUMBNAIL %}
-                    <p>{{ artwork.title }} - {{ artwork.artist }}</p>
+                <a href="{{ auction.get_absolute_url }}">
+                    {% cloudinary auction.lot.get_photo.image THUMBNAIL %}
+                    <p>{{ auction.title }}</p>
                 </a>
             </div>
         {% endfor %}

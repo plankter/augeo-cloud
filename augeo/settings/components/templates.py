@@ -27,4 +27,5 @@ TEMPLATE_LOADERS = (
 TEMPLATE_DIRS = (
     normpath(join(DJANGO_ROOT, 'templates')),
     normpath(join(DJANGO_ROOT, 'templates', 'core')),
+    normpath(join(DJANGO_ROOT, 'templates', 'auctions')),
 )

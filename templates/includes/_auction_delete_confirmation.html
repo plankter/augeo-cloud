@@ -1,0 +1,24 @@
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Delete confirmation</h4>
+            </div>
+            <div class="modal-body">
+                <p>You are about to delete current auction. Do you want to proceed?</p>
+            </div>
+            <div class="modal-footer">
+                <form role="form" action="{% url 'auctions:auction_delete' slug=auction.lot.slug %}" method="post">
+                    {% csrf_token %}
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div><!-- /.modal -->

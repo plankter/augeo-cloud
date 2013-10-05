@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load cloudinary %}
+
+
+{% block navbar %}
+    <ul class="nav navbar-nav">
+        <li><a href={% url 'core:home' %}>Artworks</a></li>
+        <li class="active"><a href={% url 'auctions:auction_list' %}>Auctions</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href={% url 'events:ping' %}>Ping</a></li>
+    </ul>
+    <div class="nav navbar-btn navbar-right btn-group">
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary" href="{% url 'core:artwork_add' %}">Add Artwork</a>
+            <a class="btn btn-default" href={% url 'profiles:logout' %}>Logout</a>
+        {% else %}
+            <a data-toggle="modal" href="#loginModal" class="btn btn-default">Log in</a>
+            <a href="#" class="btn btn-default">Sign up</a>
+        {% endif %}
+    </div>
+{% endblock navbar %}
+
+
+{% block content %}
+    <h1>{{ lot.title }}</h1>
+    <h2>{{ lot.artist }}</h2>
+
+    <a data-toggle="lightbox" href="#imageLightbox">
+        {% cloudinary lot.get_photo.image width=800 crop="fit" class="img-thumbnail" %}
+    </a>
+
+    <div id="imageLightbox" class="lightbox hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class='lightbox-content'>
+            {% cloudinary lot.get_photo.image width=800 crop="fit" %}
+            <div class="lightbox-caption"><p>Your caption here</p></div>
+        </div>
+    </div>
+
+    <p>Reporter: {{ auction.lot.submitter }}</p>
+    <p>Published: {{ auction.date_added|date }}</p>
+
+    {% if user.is_authenticated %}
+        {% if artwork.submitter == user %}
+            <a href="{% url 'auctions:auction_edit' slug=artwork.slug %}" class="btn btn-default">Edit</a>
+            <a data-toggle="modal" href="#deleteModal" class="btn btn-danger">Delete</a>
+            {% include "includes/_auction_delete_confirmation.html" %}
+        {% endif %}
+    {% endif %}
+
+{% endblock content %}
+
+
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static "js/bootstrap-lightbox.min.js" %}"></script>
+{% endblock js %}
