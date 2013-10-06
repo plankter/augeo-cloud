@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, DateTimeInput
 
 from .models import Auction, Bid
 
@@ -6,7 +6,7 @@ from .models import Auction, Bid
 class AuctionForm(ModelForm):
     class Meta:
         model = Auction
-        exclude = ('lot',)
+        fields = ('start', 'end', 'active',)
 
 
 class BidForm(ModelForm):

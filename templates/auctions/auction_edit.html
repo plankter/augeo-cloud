@@ -1,6 +1,14 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load cloudinary %}
 {% load crispy_forms_tags %}
+
+
+{% block css %}
+    {{ block.super }}
+    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <link href="{% static "css/jquery-ui-timepicker-addon.css" %}" rel="stylesheet">
+{% endblock css %}
 
 
 {% block navbar %}
@@ -24,15 +32,28 @@
 
 
 {% block content %}
-    <form role="form" action="{% url "auctions:auction_edit" slug=artwork.slug %}" method="post">
+    <form role="form" action="{% url "auctions:auction_edit" slug=lot.slug %}" method="post">
         {% csrf_token %}
-        <div class="form-row">
-            {{ form|crispy }}
-        </div>
-        <div class="form-row">
-            {{ photo_form|crispy }}
-        </div>
+        {{ form|crispy }}
         <button type="submit" class="btn btn-primary">Update</button>
+        <a data-toggle="modal" href="#deleteModal" class="btn btn-danger">Delete</a>
     </form>
-    <div id="info"></div>
+    {% include "includes/_auction_delete_confirmation.html" %}
 {% endblock content %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="{% static "js/jquery-ui-timepicker-addon.js" %}"></script>
+    <script>
+        $(function () {
+            $("#id_start").datetimepicker({
+                timeFormat: "HH:mm"
+            });
+            $("#id_end").datetimepicker({
+                timeFormat: "HH:mm"
+            });
+        });
+    </script>
+{% endblock js %}

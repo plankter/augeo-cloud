@@ -3,7 +3,6 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from pure_pagination.mixins import PaginationMixin
 from braces.views import LoginRequiredMixin
 
 from core.models import Artwork
@@ -11,7 +10,7 @@ from .models import Auction, Bid
 from .forms import AuctionForm, BidForm
 
 
-class AuctionList(PaginationMixin, ListView):
+class AuctionList(ListView):
     template_name = 'auction_list.html'
     context_object_name = 'auctions'
     paginate_by = 50
@@ -60,6 +59,11 @@ class AuctionUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'auction_edit.html'
     context_object_name = 'auction'
 
+    def get_context_data(self, **kwargs):
+        context = super(AuctionUpdate, self).get_context_data(**kwargs)
+        context['lot'] = Artwork.objects.get(slug=self.kwargs['slug'])
+        return context
+
     def get_object(self, queryset=None):
         return Auction.objects.get(lot__slug=self.kwargs['slug'])
 
@@ -70,3 +74,6 @@ class AuctionUpdate(LoginRequiredMixin, UpdateView):
 class AuctionDelete(LoginRequiredMixin, DeleteView):
     model = Auction
     success_url = reverse_lazy('auctions:auction_list')
+
+    def get_object(self, queryset=None):
+        return Auction.objects.get(lot__slug=self.kwargs['slug'])

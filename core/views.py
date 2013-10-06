@@ -1,16 +1,16 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from pure_pagination.mixins import PaginationMixin
 from braces.views import LoginRequiredMixin
 
-from .models import Artwork, Photo
+from .models import Artwork
 from .forms import PhotoForm, ArtworkForm
 
 
-class ArtworkList(PaginationMixin, ListView):
+class ArtworkList(ListView):
     template_name = 'artwork_list.html'
     context_object_name = 'artworks'
     paginate_by = 50
@@ -53,6 +53,15 @@ class ArtworkDetail(DetailView):
     model = Artwork
     template_name = 'artwork_detail.html'
     context_object_name = 'artwork'
+
+    def get_context_data(self, **kwargs):
+        context = super(ArtworkDetail, self).get_context_data(**kwargs)
+        try:
+            auction = self.object.auction
+        except ObjectDoesNotExist:
+            auction = None
+        context['auction'] = auction
+        return context
 
 
 class ArtworkUpdate(LoginRequiredMixin, UpdateView):

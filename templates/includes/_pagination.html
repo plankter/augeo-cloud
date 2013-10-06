@@ -1,23 +1,23 @@
-<div class="pagination">
+<ul class="pagination">
     {% if page_obj.has_previous %}
-        <a href="?{{ page_obj.previous_page_number.querystring }}" class="prev">&lsaquo;&lsaquo; previous</a>
+        <li><a href="?{{ page_obj.previous_page_number.querystring }}" class="prev">&laquo;</a></li>
     {% else %}
-        <span class="disabled prev">&lsaquo;&lsaquo; previous</span>
+        <li class="disabled">&laquo;</li>
     {% endif %}
+
     {% for page in page_obj.pages %}
         {% if page %}
             {% ifequal page page_obj.number %}
-                <span class="current page">{{ page }}</span>
+                <li class="active">{{ page }}</li>
             {% else %}
-                <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                <li><a href="?{{ page.querystring }}">{{ page }}</a></li>
             {% endifequal %}
-        {% else %}
-            ...
         {% endif %}
     {% endfor %}
+
     {% if page_obj.has_next %}
-        <a href="?{{ page_obj.next_page_number.querystring }}" class="next">next &rsaquo;&rsaquo;</a>
+        <li><a href="?{{ page_obj.next_page_number.querystring }}" class="next">&raquo;</a></li>
     {% else %}
-        <span class="disabled next">next &rsaquo;&rsaquo;</span>
+        <li class="disabled">&raquo;</li>
     {% endif %}
-</div>
+</ul>

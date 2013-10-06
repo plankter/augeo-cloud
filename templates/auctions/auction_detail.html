@@ -3,6 +3,12 @@
 {% load cloudinary %}
 
 
+{% block css %}
+    {{ block.super }}
+    <link href="{% static "css/bootstrap-lightbox.min.css" %}" rel="stylesheet">
+{% endblock css %}
+
+
 {% block navbar %}
     <ul class="nav navbar-nav">
         <li><a href={% url 'core:home' %}>Artworks</a></li>

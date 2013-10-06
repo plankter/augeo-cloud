@@ -5,6 +5,13 @@
 
 {% disqus_dev %}
 
+
+{% block css %}
+    {{ block.super }}
+    <link href="{% static "css/bootstrap-lightbox.min.css" %}" rel="stylesheet">
+{% endblock css %}
+
+
 {% block content %}
     <div class="page-header">
         <h1><small>Title:</small> {{ artwork.title }}</h1>
@@ -27,7 +34,11 @@
 
     {% if user.is_authenticated %}
         {% if artwork.submitter == user %}
-            <a href="{% url 'auctions:auction_add' slug=artwork.slug %}" class="btn btn-primary">Put on auction</a>
+            {% if auction %}
+                <a href="{% url 'auctions:auction_edit' slug=artwork.slug %}" class="btn btn-primary">Edit auction</a>
+            {% else %}
+                <a href="{% url 'auctions:auction_add' slug=artwork.slug %}" class="btn btn-primary">Put on auction</a>
+            {% endif %}
             <a href="{% url 'core:artwork_edit' slug=artwork.slug %}" class="btn btn-default">Edit</a>
             <a data-toggle="modal" href="#deleteModal" class="btn btn-danger">Delete</a>
             {% include "includes/_artwork_delete_confirmation.html" %}

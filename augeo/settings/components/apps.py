@@ -20,10 +20,7 @@ THIRD_PARTY_APPS = (
     # Database migration helpers:
     'south',
 
-    'pure_pagination',
     'taggit',
-
-    'gunicorn',
 )
 
 LOCAL_APPS = (
