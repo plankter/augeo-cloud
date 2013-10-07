@@ -14,13 +14,44 @@
 
 {% block content %}
     <div class="page-header">
-        <h1><small>Title:</small> {{ artwork.title }}</h1>
-        <h2><small>Artist:</small> {{ artwork.artist }}</h2>
+        <h1>
+            <small>Title:</small>
+            {{ artwork.title }}</h1>
+        <h2>
+            <small>Artist:</small>
+            {{ artwork.artist }}</h2>
     </div>
 
-    <a data-toggle="lightbox" href="#imageLightbox">
-        {% cloudinary artwork.get_photo.image width=800 crop="fit" %}
-    </a>
+
+    <div class="row">
+        <div class="col-md-10">
+            <a data-toggle="lightbox" href="#imageLightbox">
+                {% cloudinary artwork.get_photo.image width=800 crop="fit" class="img-responsive img-rounded" %}
+            </a>
+        </div>
+        <div class="col-md-2">
+            {% if user.is_authenticated %}
+                {% if artwork.submitter == user %}
+                        <div class="btn-group-vertical">
+                            {% if auction %}
+                                <a href="{% url 'auctions:auction_edit' slug=artwork.slug %}"
+                                   class="btn btn-success"><span class="glyphicon glyphicon-usd"></span> Edit
+                                    auction</a>
+                            {% else %}
+                                <a href="{% url 'auctions:auction_add' slug=artwork.slug %}"
+                                   class="btn btn-success"><span class="glyphicon glyphicon-usd"></span> Put on
+                                    auction</a>
+                            {% endif %}
+                            <a href="{% url 'core:artwork_edit' slug=artwork.slug %}" class="btn btn-warning"><span
+                                    class="glyphicon glyphicon-edit"></span> Edit</a>
+                            <a data-toggle="modal" href="#deleteModal" class="btn btn-danger"><span
+                                    class="glyphicon glyphicon-trash"></span> Delete</a>
+                        </div>
+                    {% include "includes/_artwork_delete_confirmation.html" %}
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
 
     <div id="imageLightbox" class="lightbox hide fade" tabindex="-1" role="dialog" aria-hidden="true">
         <div class='lightbox-content'>
@@ -31,19 +62,6 @@
 
     <p>Reporter: {{ artwork.submitter }}</p>
     <p>Published: {{ artwork.published|date }}</p>
-
-    {% if user.is_authenticated %}
-        {% if artwork.submitter == user %}
-            {% if auction %}
-                <a href="{% url 'auctions:auction_edit' slug=artwork.slug %}" class="btn btn-primary">Edit auction</a>
-            {% else %}
-                <a href="{% url 'auctions:auction_add' slug=artwork.slug %}" class="btn btn-primary">Put on auction</a>
-            {% endif %}
-            <a href="{% url 'core:artwork_edit' slug=artwork.slug %}" class="btn btn-default">Edit</a>
-            <a data-toggle="modal" href="#deleteModal" class="btn btn-danger">Delete</a>
-            {% include "includes/_artwork_delete_confirmation.html" %}
-        {% endif %}
-    {% endif %}
 
     <div class="panel panel-default">
         <div class="panel-heading">

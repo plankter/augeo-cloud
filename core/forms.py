@@ -1,18 +1,23 @@
-from django.forms import ModelForm
-
+import floppyforms as forms
 from cloudinary.forms import CloudinaryJsFileField
 
 from .models import Photo, Artwork
 
 
-class ArtworkForm(ModelForm):
+class ArtworkForm(forms.ModelForm):
     class Meta:
         model = Artwork
-        exclude = ('slug',)
+        fields = ('title','artist','description','tags',)
+        widgets = {
+            'title': forms.TextInput(attrs={'placeholder': 'Title of the artwork'}),
+            'artist': forms.TextInput(attrs={'placeholder': 'Artist name'}),
+            'description': forms.Textarea,
+        }
 
 
-class PhotoForm(ModelForm):
+class PhotoForm(forms.ModelForm):
     image = CloudinaryJsFileField(
+        attrs = { 'style': "display:none" },
         options={
             'tags': ["augeo", "photo"],
             'eager': [{'crop': 'fit', 'width': 240}]
@@ -20,4 +25,4 @@ class PhotoForm(ModelForm):
 
     class Meta:
         model = Photo
-        exclude = ('artwork',)
+        fields = ('image',)

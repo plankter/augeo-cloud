@@ -21,8 +21,8 @@ class Auction(models.Model):
 
     lot = models.OneToOneField(Artwork, verbose_name="Lot", blank=False, db_index=True)
     auction_type = models.CharField("Auction type", max_length=5, choices=AUCTION_TYPES, default=ENGLISH_AUCTION)
-    start = models.DateTimeField("Auction start date & time")
-    end = models.DateTimeField("Auction end date & time")
+    start = models.DateTimeField("Auction start")
+    end = models.DateTimeField("Auction end")
     active = models.BooleanField("Active", default=False)
     reserve_price = MoneyField("Reserve price", max_digits=10, decimal_places=2, default_currency='CHF')
     reserve_price_posted = models.BooleanField("Is reserve price posted?", default=False)

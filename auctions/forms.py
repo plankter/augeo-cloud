@@ -1,14 +1,19 @@
-from django.forms import ModelForm, DateTimeInput
+import floppyforms as forms
 
 from .models import Auction, Bid
 
 
-class AuctionForm(ModelForm):
+class AuctionForm(forms.ModelForm):
     class Meta:
         model = Auction
         fields = ('start', 'end', 'active',)
+        widgets = {
+            'start': forms.DateTimeInput(attrs={'placeholder': 'Date & Time'}),
+            'end': forms.DateTimeInput(attrs={'placeholder': 'Date & Time'}),
+            'active': forms.CheckboxInput,
+        }
 
 
-class BidForm(ModelForm):
+class BidForm(forms.ModelForm):
     class Meta:
         model = Bid

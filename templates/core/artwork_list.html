@@ -22,7 +22,7 @@
 
 {% block content %}
     <div id="container">
-        {% for artwork in artworks %}
+        {% for artwork in artwork_list %}
             <div class="item">
                 <a href="{{ artwork.get_absolute_url }}">
                     {# Renders an IMG tag for a CloudinaryImage objects. #}

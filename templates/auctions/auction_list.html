@@ -23,7 +23,7 @@
 
 {% block content %}
     <div id="container">
-        {% for auction in auctions %}
+        {% for auction in auction_list %}
             <div class="item">
                 <a href="{{ auction.get_absolute_url }}">
                     {% cloudinary auction.lot.get_photo.image THUMBNAIL %}

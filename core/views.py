@@ -11,8 +11,6 @@ from .forms import PhotoForm, ArtworkForm
 
 
 class ArtworkList(ListView):
-    template_name = 'artwork_list.html'
-    context_object_name = 'artworks'
     paginate_by = 50
 
     def get_queryset(self):
@@ -51,8 +49,6 @@ class ArtworkCreate(LoginRequiredMixin, CreateView):
 
 class ArtworkDetail(DetailView):
     model = Artwork
-    template_name = 'artwork_detail.html'
-    context_object_name = 'artwork'
 
     def get_context_data(self, **kwargs):
         context = super(ArtworkDetail, self).get_context_data(**kwargs)
@@ -68,7 +64,6 @@ class ArtworkUpdate(LoginRequiredMixin, UpdateView):
     model = Artwork
     form_class = ArtworkForm
     template_name = 'artwork_edit.html'
-    context_object_name = 'artwork'
 
     def get_object(self, queryset=None):
         return Artwork.objects.get(slug=self.kwargs['slug'])

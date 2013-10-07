@@ -2,6 +2,7 @@
 {% load cloudinary %}
 {% load crispy_forms_tags %}
 
+
 {% block content %}
     <form role="form" action="{% url "core:artwork_add" %}" method="post">
         {% csrf_token %}
@@ -10,6 +11,7 @@
         </div>
         <div class="form-group">
             {{ photo_form|crispy }}
+            <button type="button" class="btn btn-default" onclick="$('input[id=id_photo-image]').click();">Upload Image</button>
         </div>
         <button type="submit" class="btn btn-primary">Add Artwork</button>
     </form>
@@ -19,6 +21,10 @@
 {% block js %}
     {{ block.super }}
     <script>
+        $('input[id=id_photo-image]').change(function() {
+            $('#photoCover').val($(this).val());
+        });
+
         $(document).ready(function () {
             // Cloudinary jQuery integration library uses jQuery File Upload widget
             // (see http://blueimp.github.io/jQuery-File-Upload/).

@@ -11,8 +11,6 @@ from .forms import AuctionForm, BidForm
 
 
 class AuctionList(ListView):
-    template_name = 'auction_list.html'
-    context_object_name = 'auctions'
     paginate_by = 50
 
     def get_queryset(self):
@@ -41,8 +39,6 @@ class AuctionCreate(LoginRequiredMixin, CreateView):
 
 class AuctionDetail(DetailView):
     model = Auction
-    template_name = 'auction_detail.html'
-    context_object_name = 'auction'
 
     def get_object(self, queryset=None):
         return Auction.objects.select_related().get(lot__slug=self.kwargs['slug'])
@@ -57,7 +53,6 @@ class AuctionUpdate(LoginRequiredMixin, UpdateView):
     model = Auction
     form_class = AuctionForm
     template_name = 'auction_edit.html'
-    context_object_name = 'auction'
 
     def get_context_data(self, **kwargs):
         context = super(AuctionUpdate, self).get_context_data(**kwargs)
