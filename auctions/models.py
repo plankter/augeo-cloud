@@ -80,7 +80,7 @@ class BidBasket(models.Model):
         except Exception, e:
             amount = Decimal('0')
 
-        bid = Bid.objects.get_or_create(auction=auction, bid_basket=self)
+        bid, created = Bid.objects.get_or_create(bid_basket=self, auction=auction)
         if bid:
             bid.amount = amount
             bid.save()

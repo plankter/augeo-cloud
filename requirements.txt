@@ -9,6 +9,7 @@ django-braces==1.2.2
 django-crispy-forms==1.4.0
 django-debug-toolbar==0.9.4
 django-disqus==0.4.1
+django-floppyforms==1.1
 django-money==0.3.3
 django-pylibmc-sasl==0.2.4
 django-split-settings==0.1.1
@@ -31,7 +32,7 @@ python-dateutil==1.5
 python-mimeparse==0.1.4
 python-openid==2.2.5
 python-slugify==0.0.6
-python-social-auth==0.1.13
+python-social-auth==0.1.14
 pytz==2013.7
 redis==2.8.0
 requests==2.0.0

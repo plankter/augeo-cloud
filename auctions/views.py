@@ -1,13 +1,14 @@
+from decimal import Decimal
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, RedirectView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from braces.views import LoginRequiredMixin
 
 from core.models import Artwork
-from .models import Auction, Bid
-from .forms import AuctionForm, BidForm
+from .models import Auction, BidBasket
+from .forms import AuctionForm
 
 
 class AuctionList(ListView):
@@ -45,7 +46,9 @@ class AuctionDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(AuctionDetail, self).get_context_data(**kwargs)
-        context['lot'] = Artwork.objects.select_related().get(slug=self.kwargs['slug'])
+        lot = Artwork.objects.get(slug=self.kwargs['slug'])
+        context['lot'] = lot
+        context['photo'] = lot.get_photo()
         return context
 
 
@@ -72,3 +75,20 @@ class AuctionDelete(LoginRequiredMixin, DeleteView):
 
     def get_object(self, queryset=None):
         return Auction.objects.get(lot__slug=self.kwargs['slug'])
+
+
+class BidView(LoginRequiredMixin, RedirectView):
+
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        bid_basket, created = BidBasket.objects.get_or_create(bidder=user)
+        if bid_basket:
+            amount = request.POST['amount']
+            if Decimal(amount):
+                auction = Auction.objects.get(lot__slug=kwargs['slug'])
+                bid = bid_basket.add_bid(auction, amount)
+        return super(BidView, self).post(request, *args, **kwargs)
+
+    def get_redirect_url(self, slug):
+        return reverse_lazy('auctions:auction_detail', kwargs={'slug': slug})
+
