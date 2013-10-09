@@ -1,9 +1,10 @@
 from django.conf.urls import patterns, url
 
-from .views import ArtworkList, ArtworkCreate, ArtworkUpdate, ArtworkDelete, ArtworkDetail
+from .views import ArtworkList, ArtworkCreate, ArtworkUpdate, ArtworkDelete, ArtworkDetail, ContactFormView
 
 urlpatterns = patterns('',
     url(r'^$', ArtworkList.as_view(), name='home'),
+    url(r'contact/$', ContactFormView.as_view(), name='contact'),
     url(r'artwork/add/$', ArtworkCreate.as_view(), name='artwork_add'),
     url(r'^artwork/edit/(?P<slug>[^\.]+)/$', ArtworkUpdate.as_view(), name='artwork_edit'),
     url(r'^artwork/delete/(?P<slug>[^\.]+)/$', ArtworkDelete.as_view(), name='artwork_delete'),

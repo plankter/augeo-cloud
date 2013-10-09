@@ -20,7 +20,7 @@
 
     // LISTEN
     pubnub.subscribe({
-        channel: "augeo",
+        channel: "{{ notification_channels }}",
         message: function (m) {
             $.bootstrapGrowl(m.text, {
                 offset: {from: 'top', amount: 60}, // 'top', or 'bottom'

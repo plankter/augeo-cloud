@@ -1,13 +1,14 @@
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, FormView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from braces.views import LoginRequiredMixin
 
 from .models import Artwork
-from .forms import PhotoForm, ArtworkForm
+from .forms import PhotoForm, ArtworkForm, ContactForm
 
 
 class ArtworkList(ListView):
@@ -75,3 +76,23 @@ class ArtworkUpdate(LoginRequiredMixin, UpdateView):
 class ArtworkDelete(LoginRequiredMixin, DeleteView):
     model = Artwork
     success_url = reverse_lazy('core:home')
+
+
+class ContactFormView(FormView):
+
+    form_class = ContactForm
+    template_name = "contact_form.html"
+    success_url = reverse_lazy('core:home')
+
+    def form_valid(self, form):
+        message = "{name} / {email} said: ".format(
+            name=form.cleaned_data.get('name'),
+            email=form.cleaned_data.get('email'))
+        message += form.cleaned_data.get('message')
+        send_mail(
+            subject=form.cleaned_data.get('subject').strip(),
+            message=message,
+            from_email='contact@augeo-cloud.herokuapp.com',
+            recipient_list=['Anton Rau <anton.rau@gmail.com>'],
+        )
+        return super(ContactFormView, self).form_valid(form)

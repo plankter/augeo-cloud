@@ -130,6 +130,15 @@ class BidBasket(models.Model):
         """
         return Bid.objects.filter(bid_busket=self).count()
 
+    def get_notification_channels(self):
+        """
+        Returns total bids in basket.
+        """
+        bids = self.bid_set.select_related()
+        auctions = [bid.auction for bid in bids]
+        slugs = [auction.slug for auction in auctions]
+        return slugs
+
 
 class Bid(models.Model):
     auction = models.ForeignKey(Auction, verbose_name="Auction", blank=False, db_index=True)

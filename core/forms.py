@@ -1,4 +1,6 @@
 import floppyforms as forms
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 from cloudinary.forms import CloudinaryJsFileField
 
 from .models import Photo, Artwork
@@ -26,3 +28,11 @@ class PhotoForm(forms.ModelForm):
     class Meta:
         model = Photo
         fields = ('image',)
+
+
+class ContactForm(forms.Form):
+
+    name = forms.CharField(required=True)
+    email = forms.EmailField(required=True)
+    subject = forms.CharField(required=True)
+    message = forms.CharField(widget=forms.Textarea)

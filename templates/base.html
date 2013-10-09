@@ -46,8 +46,8 @@
                         <li class="active"><a href={% url 'core:home' %}>Artworks</a></li>
                         <li><a href={% url 'auctions:auction_list' %}>Auctions</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href={% url 'events:ping' %}>Ping</a></li>
+                        <li><a href="{% url 'core:contact' %}">Contact</a></li>
+                        <li><a href="{% url 'events:ping' %}">Ping</a></li>
                     </ul>
                     <div class="nav navbar-btn navbar-right btn-group">
                         {% if user.is_authenticated %}
