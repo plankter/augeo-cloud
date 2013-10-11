@@ -30,6 +30,9 @@ class Artwork(models.Model):
     def get_absolute_url(self):
         return reverse('core:artwork_detail', kwargs={'slug': self.slug})
 
+    def dehydrate_tags(self):
+        return map(str, self.tags.all())
+
     def __unicode__(self):
         return "%s by %s" % (self.title, self.artist)
 

@@ -5,6 +5,18 @@ INSTALLED_APPS += (
     'social.apps.django_app.default',
 )
 
+AUTHENTICATION_BACKENDS += (
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.facebook.FacebookOAuth2',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+)
+
+SOCIAL_AUTH_PROTECTED_USER_FIELDS = ['email',]
+
 SOCIAL_AUTH_STRATEGY = 'social.strategies.django_strategy.DjangoStrategy'
 SOCIAL_AUTH_STORAGE = 'social.apps.django_app.default.models.DjangoStorage'
 

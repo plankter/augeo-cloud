@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load cloudinary %}
 
+
 {% block navbar %}
     <ul class="nav navbar-nav">
         <li class="active"><a href={% url 'core:home' %}>Artworks</a></li>
@@ -20,21 +21,26 @@
     </div>
 {% endblock navbar %}
 
+
 {% block content %}
     <div id="container">
         {% for artwork in artwork_list %}
             <div class="item">
                 <a href="{{ artwork.get_absolute_url }}">
-                    {# Renders an IMG tag for a CloudinaryImage objects. #}
-                    {# THUMBNAIL defined in context_processors #}
                     {% cloudinary artwork.get_photo.image THUMBNAIL %}
-                    <p>{{ artwork.title }} - {{ artwork.artist }}</p>
+                    <p>{{ artwork.title }} <span class="text-muted">by {{ artwork.artist }}</span></p>
+                    <p>
+                        {% for tag in artwork.dehydrate_tags %}
+                            <span class="badge">{{ tag }}</span>
+                        {% endfor %}
+                    </p>
                 </a>
             </div>
         {% endfor %}
     </div>
     {% include "includes/_pagination.html" %}
 {% endblock content %}
+
 
 {% block js %}
     {{ block.super }}

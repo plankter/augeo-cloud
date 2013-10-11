@@ -11,9 +11,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
     'django.contrib.messages.context_processors.messages',
 
-    'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect',
-
     'core.context_processors.consts',
 )
 

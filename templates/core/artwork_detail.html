@@ -23,46 +23,48 @@
     </div>
 
 
-    <div class="row">
-        <div class="col-md-10">
-            <a data-toggle="lightbox" href="#imageLightbox">
-                {% cloudinary artwork.get_photo.image width=800 crop="fit" class="img-responsive img-rounded" %}
-            </a>
-        </div>
-        <div class="col-md-2">
-            {% if user.is_authenticated %}
-                {% if artwork.submitter == user %}
-                    <div class="btn-group-vertical">
-                        {% if auction %}
-                            <a href="{% url 'auctions:auction_edit' slug=artwork.slug %}"
-                               class="btn btn-success"><span class="glyphicon glyphicon-usd"></span> Edit
-                                auction</a>
-                        {% else %}
-                            <a href="{% url 'auctions:auction_add' slug=artwork.slug %}"
-                               class="btn btn-success"><span class="glyphicon glyphicon-usd"></span> Put on
-                                auction</a>
-                        {% endif %}
-                        <a href="{% url 'core:artwork_edit' slug=artwork.slug %}" class="btn btn-warning"><span
-                                class="glyphicon glyphicon-edit"></span> Edit</a>
-                        <a data-toggle="modal" href="#deleteModal" class="btn btn-danger"><span
-                                class="glyphicon glyphicon-trash"></span> Delete</a>
-                    </div>
-                    {% include "includes/_artwork_delete_confirmation.html" %}
+    {% with image=artwork.get_photo.image %}
+        <div class="row">
+            <div class="col-md-10">
+                <a data-toggle="lightbox" href="#imageLightbox">
+                    {% cloudinary image width=800 crop="fit" class="img-responsive img-rounded" %}
+                </a>
+            </div>
+            <div class="col-md-2">
+                {% if user.is_authenticated %}
+                    {% if artwork.submitter == user %}
+                        <div class="btn-group-vertical">
+                            {% if auction %}
+                                <a href="{% url 'auctions:auction_edit' slug=artwork.slug %}"
+                                   class="btn btn-success"><span class="glyphicon glyphicon-usd"></span> Edit
+                                    auction</a>
+                            {% else %}
+                                <a href="{% url 'auctions:auction_add' slug=artwork.slug %}"
+                                   class="btn btn-success"><span class="glyphicon glyphicon-usd"></span> Put on
+                                    auction</a>
+                            {% endif %}
+                            <a href="{% url 'core:artwork_edit' slug=artwork.slug %}" class="btn btn-warning"><span
+                                    class="glyphicon glyphicon-edit"></span> Edit</a>
+                            <a data-toggle="modal" href="#deleteModal" class="btn btn-danger"><span
+                                    class="glyphicon glyphicon-trash"></span> Delete</a>
+                        </div>
+                        {% include "includes/_artwork_delete_confirmation.html" %}
+                    {% endif %}
                 {% endif %}
-            {% endif %}
+            </div>
         </div>
-    </div>
 
-    <div id="imageLightbox" class="lightbox fade" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class='lightbox-dialog'>
-            <div class='lightbox-content'>
-                {% cloudinary artwork.get_photo.image %}
-                <div class='lightbox-caption'>
-                    {{ artwork.title }}
+        <div id="imageLightbox" class="lightbox fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class='lightbox-dialog'>
+                <div class='lightbox-content'>
+                    {% cloudinary image %}
+                    <div class='lightbox-caption'>
+                        {{ artwork.title }}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endwith %}
 
     <p>Reporter: {{ artwork.submitter }}</p>
     <p>Published: {{ artwork.published|date }}</p>

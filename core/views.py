@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
@@ -32,6 +33,7 @@ class ArtworkCreate(LoginRequiredMixin, CreateView):
             new_photo = photo_form.save(commit=False)
             new_photo.artwork = self.object
             new_photo.save()
+            cache.set("artwork_" + self.object.slug, self.object)
             return HttpResponseRedirect(self.object.get_absolute_url())
         else:
             return self.render_to_response(self.get_context_data(form=form))
@@ -50,6 +52,12 @@ class ArtworkCreate(LoginRequiredMixin, CreateView):
 
 class ArtworkDetail(DetailView):
     model = Artwork
+
+    def get_object(self, queryset=None):
+        artwork = cache.get("artwork_" + self.kwargs['slug'])
+        if not artwork:
+            artwork = Artwork.objects.get(slug=self.kwargs['slug'])
+        return artwork
 
     def get_context_data(self, **kwargs):
         context = super(ArtworkDetail, self).get_context_data(**kwargs)

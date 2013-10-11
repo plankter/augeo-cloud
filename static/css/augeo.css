@@ -33,6 +33,10 @@ body {
 	margin: 0;
 }
 
+.item a:hover {
+	text-decoration: none;
+}
+
 /* center container with CSS */
 #fit-width .masonry {
   margin: 0 auto;
