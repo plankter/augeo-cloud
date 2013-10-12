@@ -1,13 +1,32 @@
 from decimal import Decimal
 from datetime import time
+from django.core.cache import cache
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 
 from djmoney.models.fields import MoneyField
 
 from core.models import Artwork
 from .utils import get_current_time
+
+
+
+
+class AuctionManager(models.Manager):
+    def get_auction(self, slug):
+        key = "auction:%s" % slug
+        auction = cache.get(key)
+        if not auction:
+            try:
+                auction = Auction.objects.select_related().get(lot__slug=slug)
+            except ObjectDoesNotExist:
+                return None
+            cache.add(key, auction)
+        return auction
 
 
 class Auction(models.Model):
@@ -34,9 +53,19 @@ class Auction(models.Model):
     date_added = models.DateTimeField("Date added", auto_now_add=True)
     last_modified = models.DateTimeField("Last modified", auto_now=True)
 
+    objects = AuctionManager()
+
     class Meta:
         verbose_name = 'Auction'
         verbose_name_plural = 'Auctions'
+
+    def save(self, *args, **kwargs):
+        super(Auction, self).save(*args, **kwargs)
+        key = "auction:%s" % self.lot.slug
+        cache.set(key, self)
+
+    def get_absolute_url(self):
+        return reverse('auctions:auction_detail', kwargs={'slug': self.lot.slug})
 
     @property
     def is_locked(self):
@@ -48,15 +77,28 @@ class Auction(models.Model):
             return True
         return False
 
-    def get_absolute_url(self):
-        return reverse('auctions:auction_detail', kwargs={'slug': self.lot.slug})
-
-    @property
-    def slug(self):
-        return self.lot.slug
-
     def __unicode__(self):
         return self.lot.title
+
+
+@receiver(post_delete, sender=Auction, dispatch_uid='auction_post_delete')
+def auction_post_delete(sender, instance, using, **kwargs):
+    key = "auction:%s" % instance.lot.slug
+    cache.delete(key)
+
+
+
+class BidBasketManager(models.Manager):
+    def get_basket(self, user):
+        key = "basket:%s" % user.username
+        basket = cache.get(key)
+        if not basket:
+            try:
+                basket = BidBasket.objects.get(bidder=user)
+            except ObjectDoesNotExist:
+                return None
+            cache.add(key, basket)
+        return basket
 
 
 class BidBasket(models.Model):
@@ -67,9 +109,16 @@ class BidBasket(models.Model):
     date_added = models.DateTimeField('Date added', auto_now_add=True)
     last_modified = models.DateTimeField('Last modified', auto_now=True)
 
+    objects = BidBasketManager()
+
     class Meta:
         verbose_name = 'Bid basket'
         verbose_name_plural = 'Bid baskets'
+
+    def save(self, *args, **kwargs):
+        super(BidBasket, self).save(*args, **kwargs)
+        key = "basket:%s" % self.bidder.username
+        cache.set(key, self)
 
     def add_bid(self, auction, amount):
         if auction.is_locked:
@@ -135,9 +184,13 @@ class BidBasket(models.Model):
         Returns total bids in basket.
         """
         bids = self.bid_set.select_related()
-        auctions = [bid.auction for bid in bids]
-        slugs = [auction.slug for auction in auctions]
-        return slugs
+        if bids:
+            auctions = [bid.auction for bid in bids]
+            slugs = [auction.lot.slug for auction in auctions]
+            return ', '.join(slugs)
+        return None
+
+
 
 
 class Bid(models.Model):
@@ -148,6 +201,10 @@ class Bid(models.Model):
     class Meta:
         verbose_name = 'Bid'
         verbose_name_plural = 'Bids'
+
+    def save(self, *args, **kwargs):
+        super(Bid, self).save(*args, **kwargs)
+        cache.set("bid:" + self.id, self)
 
     @property
     def is_locked(self):

@@ -12,6 +12,8 @@ from .models import Auction, BidBasket
 from .forms import AuctionForm
 
 
+
+
 class AuctionList(ListView):
     paginate_by = 50
 
@@ -26,7 +28,7 @@ class AuctionCreate(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(AuctionCreate, self).get_context_data(**kwargs)
-        context['lot'] = Artwork.objects.get(slug=self.kwargs['slug'])
+        context['lot'] = Artwork.objects.get_artwork(self.kwargs['slug'])
         return context
 
     def form_valid(self, form):
@@ -43,18 +45,18 @@ class AuctionDetail(DetailView):
     model = Auction
 
     def get_object(self, queryset=None):
-        return Auction.objects.select_related().get(lot__slug=self.kwargs['slug'])
+        return Auction.objects.get_auction(self.kwargs['slug'])
 
     def get_context_data(self, **kwargs):
         context = super(AuctionDetail, self).get_context_data(**kwargs)
-        lot = Artwork.objects.get(slug=self.kwargs['slug'])
+        lot = Artwork.objects.get_artwork(self.kwargs['slug'])
         context['lot'] = lot
         context['photo'] = lot.get_photo()
         if self.request.user.is_authenticated():
             try:
-                bid_basket = self.request.user.bidbasket
-                if bid_basket:
-                    context['notification_channels'] = bid_basket.get_notification_channels()
+                basket = BidBasket.objects.get_basket(self.request.user)
+                if basket:
+                    context['notification_channels'] = basket.get_notification_channels()
             except ObjectDoesNotExist:
                 pass
 
@@ -66,13 +68,13 @@ class AuctionUpdate(LoginRequiredMixin, UpdateView):
     form_class = AuctionForm
     template_name = 'auction_edit.html'
 
+    def get_object(self, queryset=None):
+        return Auction.objects.get_auction(self.kwargs['slug'])
+
     def get_context_data(self, **kwargs):
         context = super(AuctionUpdate, self).get_context_data(**kwargs)
-        context['lot'] = Artwork.objects.get(slug=self.kwargs['slug'])
+        context['lot'] = Artwork.objects.get_artwork(self.kwargs['slug'])
         return context
-
-    def get_object(self, queryset=None):
-        return Auction.objects.get(lot__slug=self.kwargs['slug'])
 
     def get_success_url(self):
         return reverse_lazy('auctions:auction_detail', kwargs={'slug': self.object.slug})
@@ -83,7 +85,9 @@ class AuctionDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('auctions:auction_list')
 
     def get_object(self, queryset=None):
-        return Auction.objects.get(lot__slug=self.kwargs['slug'])
+        return Auction.objects.get_auction(self.kwargs['slug'])
+
+
 
 
 class BidView(LoginRequiredMixin, RedirectView):
@@ -100,4 +104,3 @@ class BidView(LoginRequiredMixin, RedirectView):
 
     def get_redirect_url(self, slug):
         return reverse_lazy('auctions:auction_detail', kwargs={'slug': slug})
-

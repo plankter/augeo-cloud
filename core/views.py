@@ -1,5 +1,3 @@
-from django.core.cache import cache
-from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
@@ -8,8 +6,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from braces.views import LoginRequiredMixin
 
+from auctions.models import Auction
 from .models import Artwork
 from .forms import PhotoForm, ArtworkForm, ContactForm
+
+
 
 
 class ArtworkList(ListView):
@@ -33,7 +34,6 @@ class ArtworkCreate(LoginRequiredMixin, CreateView):
             new_photo = photo_form.save(commit=False)
             new_photo.artwork = self.object
             new_photo.save()
-            cache.set("artwork_" + self.object.slug, self.object)
             return HttpResponseRedirect(self.object.get_absolute_url())
         else:
             return self.render_to_response(self.get_context_data(form=form))
@@ -54,17 +54,12 @@ class ArtworkDetail(DetailView):
     model = Artwork
 
     def get_object(self, queryset=None):
-        artwork = cache.get("artwork_" + self.kwargs['slug'])
-        if not artwork:
-            artwork = Artwork.objects.get(slug=self.kwargs['slug'])
+        artwork = Artwork.objects.get_artwork(self.kwargs['slug'])
         return artwork
 
     def get_context_data(self, **kwargs):
         context = super(ArtworkDetail, self).get_context_data(**kwargs)
-        try:
-            auction = self.object.auction
-        except ObjectDoesNotExist:
-            auction = None
+        auction = Auction.objects.get_auction(self.object.slug)
         context['auction'] = auction
         return context
 
@@ -75,7 +70,8 @@ class ArtworkUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'artwork_edit.html'
 
     def get_object(self, queryset=None):
-        return Artwork.objects.get(slug=self.kwargs['slug'])
+        artwork = Artwork.objects.get_artwork(self.kwargs['slug'])
+        return artwork
 
     def get_success_url(self):
         return reverse_lazy('core:artwork_detail', kwargs={'slug': self.object.slug})
@@ -86,8 +82,9 @@ class ArtworkDelete(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy('core:home')
 
 
-class ContactFormView(FormView):
 
+
+class ContactFormView(FormView):
     form_class = ContactForm
     template_name = "contact_form.html"
     success_url = reverse_lazy('core:home')

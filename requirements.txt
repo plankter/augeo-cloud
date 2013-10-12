@@ -20,7 +20,7 @@ django-tastypie==0.10.0
 django-uuslug==1.0.0
 djrill==0.6.0
 gunicorn==18.0
-newrelic==2.0.0.1
+newrelic==2.2.1.3
 oauthlib==0.6.0
 poster==0.8.2
 psycopg2==2.5.1
@@ -39,4 +39,5 @@ redis==2.8.0
 requests==2.0.0
 requests-oauthlib==0.4.0
 six==1.4.1
+urbanairship==0.6.2
 wsgiref==0.1.2
