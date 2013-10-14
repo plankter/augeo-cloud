@@ -30,7 +30,6 @@ if os.environ['DJANGO_SETTINGS_MODULE'] == 'augeo.settings':
         'components/django-floppyforms.py',
         'components/django-suit.py',
         'components/disqus.py',
-        'components/django-money.py',
         'components/djrill.py',
 
         # OVERRIDE SETTINGS

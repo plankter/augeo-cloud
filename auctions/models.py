@@ -8,10 +8,42 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
-from djmoney.models.fields import MoneyField
+from south.modelsinspector import add_introspection_rules
 
 from core.models import Artwork
+from events.views import pubnub
 from .utils import get_current_time
+
+
+
+
+class CurrencyField(models.DecimalField):
+    __metaclass__ = models.SubfieldBase
+
+    def __init__(self, verbose_name=None, name=None, **kwargs):
+        decimal_places = kwargs.pop('decimal_places', 2)
+        max_digits = kwargs.pop('max_digits', 10)
+
+        super(CurrencyField, self). __init__(
+            verbose_name=verbose_name, name=name, max_digits=max_digits,
+            decimal_places=decimal_places, **kwargs)
+
+    def to_python(self, value):
+        try:
+            return super(CurrencyField, self).to_python(value).quantize(Decimal("0.01"))
+        except AttributeError:
+            return None
+
+
+add_introspection_rules([
+    (
+            [CurrencyField],
+            [],
+            {
+                "decimal_places": ["decimal_places", {"default": "2"}],
+                "max_digits": ["max_digits", {"default": "10"}],
+            },
+    ), ], ['^application\.fields\.CurrencyField'])
 
 
 
@@ -43,10 +75,10 @@ class Auction(models.Model):
     start = models.DateTimeField("Auction start")
     end = models.DateTimeField("Auction end")
     active = models.BooleanField("Active", default=False)
-    reserve_price = MoneyField("Reserve price", max_digits=10, decimal_places=2, default_currency='CHF')
+    reserve_price = CurrencyField("Reserve price", blank=True)
     reserve_price_posted = models.BooleanField("Is reserve price posted?", default=False)
-    minimum_bid = MoneyField("Minimum bid", max_digits=10, decimal_places=2, default_currency='CHF')
-    bid_increment = MoneyField("Minimum bid increment", max_digits=10, decimal_places=2, default_currency='CHF')
+    minimum_bid = CurrencyField("Minimum bid", blank=True)
+    bid_increment = CurrencyField("Minimum bid increment", blank=True)
     dynamic_closing = models.BooleanField("Auction dynamic closing", default=False)
     closing_increment = models.TimeField("Auction dynamic closing time increment", default=time(0, 10, 0))
     total_bids = models.PositiveIntegerField("Total bids", default=0)
@@ -134,6 +166,15 @@ class BidBasket(models.Model):
             bid.amount = amount
             bid.save()
             self.save()
+
+            info = pubnub.publish({
+                'channel': auction.lot.slug,
+                'message': {
+                    'text': "New bid on %s" % auction,
+                    'amount': str(amount.quantize(Decimal("0.01")))
+                }
+            })
+
         return bid
 
     def update_bid(self, auction, amount):
@@ -172,7 +213,6 @@ class BidBasket(models.Model):
         Bid.objects.filter(bid_busket=self, is_locked=False).delete()
         self.save()
 
-    @property
     def total_bids(self):
         """
         Returns total bids in basket.
@@ -180,23 +220,42 @@ class BidBasket(models.Model):
         return Bid.objects.filter(bid_busket=self).count()
 
     def get_notification_channels(self):
-        """
-        Returns total bids in basket.
-        """
-        bids = self.bid_set.select_related()
-        if bids:
-            auctions = [bid.auction for bid in bids]
-            slugs = [auction.lot.slug for auction in auctions]
-            return ', '.join(slugs)
-        return None
+        key = "notification_channels:%s" % self.bidder
+        channels = cache.get(key)
+        if not channels:
+            try:
+                bids = self.bid_set.select_related()
+                if bids:
+                    auctions = [bid.auction for bid in bids]
+                    slugs = [auction.lot.slug for auction in auctions]
+                    channels = ', '.join(slugs)
+                    cache.add(key, channels)
+            except ObjectDoesNotExist:
+                return None
+        return channels
 
 
+
+
+class BidManager(models.Manager):
+    def get_highest_bid(self, auction):
+        key = "highest_bid:%s" % auction.lot.slug
+        highest_bid = cache.get(key)
+        if not highest_bid:
+            try:
+                highest_bid = Bid.objects.filter(auction=auction).aggregate(models.Max('amount'))['amount__max']
+            except ObjectDoesNotExist:
+                return None
+            cache.add(key, highest_bid)
+        return highest_bid
 
 
 class Bid(models.Model):
     auction = models.ForeignKey(Auction, verbose_name="Auction", blank=False, db_index=True)
     bid_basket = models.ForeignKey(BidBasket, verbose_name="Bid basket", blank=False)
-    amount = MoneyField('Amount', max_digits=10, decimal_places=2, default_currency='CHF')
+    amount = CurrencyField('Amount', blank=False)
+
+    objects = BidManager()
 
     class Meta:
         verbose_name = 'Bid'
@@ -204,12 +263,5 @@ class Bid(models.Model):
 
     def save(self, *args, **kwargs):
         super(Bid, self).save(*args, **kwargs)
-        cache.set("bid:" + self.id, self)
-
-    @property
-    def is_locked(self):
-        return self.auction.is_locked
-
-    @property
-    def lot(self):
-        return self.auction.lot
+        key = "highest_bid:%s" % self.auction.lot.slug
+        cache.set(key, self.amount)

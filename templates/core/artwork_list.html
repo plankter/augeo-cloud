@@ -28,13 +28,13 @@
             <div class="item">
                 <a href="{{ artwork.get_absolute_url }}">
                     {% cloudinary artwork.get_photo.image THUMBNAIL %}
-                    <p>{{ artwork.title }} <span class="text-muted">by {{ artwork.artist }}</span></p>
-                    <p>
-                        {% for tag in artwork.dehydrate_tags %}
-                            <span class="badge">{{ tag }}</span>
-                        {% endfor %}
-                    </p>
                 </a>
+                <p>{{ artwork.title }} <span class="text-muted">by {{ artwork.artist }}</span></p>
+                <p>
+                    {% for tag in artwork.dehydrate_tags %}
+                        <a href={% url 'core:tag_list' tag=tag %}><span class="badge">{{ tag }}</span></a>
+                    {% endfor %}
+                </p>
             </div>
         {% endfor %}
     </div>

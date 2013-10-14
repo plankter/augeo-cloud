@@ -20,6 +20,14 @@ class ArtworkList(ListView):
         return Artwork.objects.all()
 
 
+class ArtworkTaggedList(ListView):
+    paginate_by = 50
+
+    def get_queryset(self):
+        tag = self.kwargs['tag']
+        return Artwork.objects.filter(tags__name__in=[tag])
+
+
 class ArtworkCreate(LoginRequiredMixin, CreateView):
     model = Artwork
     template_name = 'artwork_add.html'

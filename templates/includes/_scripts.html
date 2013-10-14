@@ -24,8 +24,9 @@
         message: function (m) {
             $.bootstrapGrowl(m.text, {
                 offset: {from: 'top', amount: 60}, // 'top', or 'bottom'
-                delay: 10000
+                delay: 30000
             });
+            $('#current-bid-container').html(m.amount);
         },
         restore: false
     })

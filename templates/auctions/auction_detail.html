@@ -33,13 +33,13 @@
 
     <div class="page-header">
         <h1>
-            <small>Title:</small>
-            {{ lot.title }}</h1>
-        <h2>
-            <small>Artist:</small>
-            {{ lot.artist }}</h2>
-    </div>
+            <p>{{ lot.title }}</p>
 
+            <p>
+                <small>{{ lot.artist }}</small>
+            </p>
+        </h1>
+    </div>
 
     <div class="row">
         <div class="col-md-10">
@@ -49,17 +49,30 @@
         </div>
         <div class="col-md-2">
             {% if user.is_authenticated %}
+
+                {% if bid %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Current bid</h3>
+                        </div>
+                        <div id="current-bid-container" class="panel-body">
+                            {{ bid }}
+                        </div>
+                    </div>
+                {% endif %}
+
                 {% if lot.submitter == user %}
                     <div class="btn-group-vertical">
                         <a href="{% url 'auctions:auction_edit' slug=lot.slug %}"
-                               class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit
-                                auction</a>
+                           class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit
+                            auction</a>
                         <a data-toggle="modal" href="#deleteModal" class="btn btn-danger"><span
                                 class="glyphicon glyphicon-trash"></span> Delete</a>
                     </div>
                     {% include "includes/_auction_delete_confirmation.html" %}
                 {% else %}
-                    <a data-toggle="modal" href="#bidModal" class="btn btn-success"><span class="glyphicon glyphicon-usd"></span> Bid</a>
+                    <a data-toggle="modal" href="#bidModal" class="btn btn-success"><span
+                            class="glyphicon glyphicon-usd"></span> Bid</a>
                     {% include "includes/_bid_modal_form.html" %}
                 {% endif %}
             {% endif %}
@@ -71,9 +84,22 @@
             <div class='lightbox-content'>
                 {% cloudinary photo.image %}
                 <div class='lightbox-caption'>
-                    {{ artwork.title }}
+                    {{ lot.title }}
                 </div>
             </div>
+        </div>
+    </div>
+
+    <p>
+        <small>Published {{ lot.published|date }} by {{ lot.submitter }}</small>
+    </p>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Description</h3>
+        </div>
+        <div class="panel-body">
+            {{ lot.description }}
         </div>
     </div>
 

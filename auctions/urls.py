@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-from auctions.views import AuctionList, AuctionCreate, AuctionUpdate, AuctionDelete, AuctionDetail, BidView
+from .views import AuctionList, AuctionCreate, AuctionUpdate, AuctionDelete, AuctionDetail, BidView, AuctionTaggedList
 
 
 urlpatterns = patterns('',
@@ -13,4 +13,6 @@ urlpatterns = patterns('',
     url(r'^auction/bid/(?P<slug>[^\.]+)/$', BidView.as_view(), name='bid'),
 
     url(r'^auction/(?P<slug>[^\.]+)/$', AuctionDetail.as_view(), name='auction_detail'),
+
+    url(r'^auctions/tag/(?P<tag>[^\.]+)/$', AuctionTaggedList.as_view(), name='tag_list'),
 )

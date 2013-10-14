@@ -49,7 +49,7 @@ class Artwork(models.Model):
         return Photo.objects.get_photo(self)
 
     def dehydrate_tags(self):
-        return map(str, self.tags.all())
+        return self.tags.names()
 
     def __unicode__(self):
         return "%s by %s" % (self.title, self.artist)

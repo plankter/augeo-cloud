@@ -21,19 +21,26 @@
     </div>
 {% endblock navbar %}
 
+
 {% block content %}
     <div id="container">
         {% for auction in auction_list %}
             <div class="item">
                 <a href="{{ auction.get_absolute_url }}">
                     {% cloudinary auction.lot.get_photo.image THUMBNAIL %}
-                    <p>{{ auction.title }}</p>
                 </a>
+                <p>{{ auction.lot.title }} <span class="text-muted">by {{ auction.lot.artist }}</span></p>
+                <p>
+                    {% for tag in auction.lot.dehydrate_tags %}
+                        <a href={% url 'auctions:tag_list' tag=tag %}><span class="badge">{{ tag }}</span></a>
+                    {% endfor %}
+                </p>
             </div>
         {% endfor %}
     </div>
     {% include "includes/_pagination.html" %}
 {% endblock content %}
+
 
 {% block js %}
     {{ block.super }}
