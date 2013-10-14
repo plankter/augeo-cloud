@@ -12,22 +12,23 @@
 {% cloudinary_includes %}
 {% cloudinary_js_config %}
 
-<script>
-    // Init
-    var pubnub = PUBNUB.init({
-        subscribe_key: 'sub-c-40f49aaa-2c51-11e3-80e9-02ee2ddab7fe'
-    })
+{% if user.is_authenticated %}
+    <script>
+        // Init
+        var pubnub = PUBNUB.init({
+            subscribe_key: 'sub-c-40f49aaa-2c51-11e3-80e9-02ee2ddab7fe'
+        })
 
-    // LISTEN
-    pubnub.subscribe({
-        channel: "{{ notification_channels }}",
-        message: function (m) {
-            $.bootstrapGrowl(m.text, {
-                offset: {from: 'top', amount: 60}, // 'top', or 'bottom'
-                delay: 30000
-            });
-            $('#current-bid-container').html(m.amount);
-        },
-        restore: false
-    })
-</script>
+        // LISTEN
+        pubnub.subscribe({
+            channel: "{{ user.username }}",
+            message: function (m) {
+                $.bootstrapGrowl(m.text, {
+                    offset: {from: 'top', amount: 60}, // 'top', or 'bottom'
+                    delay: 30000
+                });
+            },
+            restore: true
+        })
+    </script>
+{% endif %}

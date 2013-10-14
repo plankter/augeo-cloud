@@ -44,7 +44,7 @@
     <div class="row">
         <div class="col-md-10">
             <a data-toggle="lightbox" href="#imageLightbox">
-                {% cloudinary photo.image width=800 crop="fit" class="img-responsive img-rounded" %}
+                {% cloudinary photo.image width=800 height=800 crop="fit" class="img-responsive img-rounded" %}
             </a>
         </div>
         <div class="col-md-2">
@@ -61,7 +61,7 @@
                     </div>
                 {% endif %}
 
-                {% if lot.submitter == user %}
+                {% if lot.publisher == user %}
                     <div class="btn-group-vertical">
                         <a href="{% url 'auctions:auction_edit' slug=lot.slug %}"
                            class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit
@@ -91,7 +91,7 @@
     </div>
 
     <p>
-        <small>Published {{ lot.published|date }} by {{ lot.submitter }}</small>
+        <small>Published {{ lot.published|date }} by {{ lot.publisher }}</small>
     </p>
 
     <div class="panel panel-default">
@@ -110,4 +110,21 @@
 {% block js %}
     {{ block.super }}
     <script src="{% static "js/bootstrap-lightbox.min.js" %}"></script>
+    <script src="{% static "js/jquery.numeric.js" %}"></script>
+
+    <script>
+        pubnub.subscribe({
+            channel: "{{ auction_channel }}",
+            message: function (m) {
+                $.bootstrapGrowl(m.text, {
+                    offset: {from: 'top', amount: 60}, // 'top', or 'bottom'
+                    delay: 30000
+                });
+                $('#current-bid-container').html(m.amount);
+            },
+            restore: true
+        })
+
+        $(".positive").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });
+    </script>
 {% endblock js %}

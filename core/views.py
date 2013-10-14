@@ -34,7 +34,7 @@ class ArtworkCreate(LoginRequiredMixin, CreateView):
     form_class = ArtworkForm
 
     def form_valid(self, form):
-        form.instance.submitter = self.request.user
+        form.instance.publisher = self.request.user
         context = self.get_context_data()
         photo_form = context['photo_form']
         if photo_form.is_valid():

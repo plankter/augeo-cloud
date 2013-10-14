@@ -1,11 +1,11 @@
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.core.cache import cache
 from django.db import models
 from django.core.urlresolvers import reverse
 
 from cloudinary import api
 from cloudinary.models import CloudinaryField
-from django.db.models.signals import pre_delete, post_delete
+from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 from taggit.managers import TaggableManager
 from uuslug import uuslug
@@ -27,10 +27,10 @@ class ArtworkManager(models.Manager):
 class Artwork(models.Model):
     title = models.CharField("Title", max_length=200, blank=False, db_index=True)
     slug = models.SlugField("Slug", max_length=50, blank=False, unique=True, db_index=True)
-    artist = models.CharField("Artist", max_length=200, blank=True)
+    artist = models.CharField("Artist", max_length=200, blank=True, db_index=True)
     description = models.TextField("Description", blank=True, null=True)
+    publisher = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False, db_index=True)
     published = models.DateTimeField("Published", auto_now_add=True)
-    submitter = models.ForeignKey(User, editable=False)
 
     tags = TaggableManager("Tags", blank=True)
 
@@ -57,12 +57,6 @@ class Artwork(models.Model):
 
 @receiver(pre_delete, sender=Artwork, dispatch_uid='artwork_pre_delete')
 def artwork_pre_delete(sender, instance, using, **kwargs):
-    photo = instance.get_photo()
-    api.delete_resources([photo.image.public_id])
-
-
-@receiver(post_delete, sender=Artwork, dispatch_uid='artwork_post_delete')
-def artwork_post_delete(sender, instance, using, **kwargs):
     key = "artwork:%s" % instance.slug
     cache.delete(key)
 
@@ -103,7 +97,9 @@ class Photo(models.Model):
         return "%s:%s" % (self.caption, public_id)
 
 
-@receiver(post_delete, sender=Photo, dispatch_uid='photo_post_delete')
-def photo_post_delete(sender, instance, using, **kwargs):
+@receiver(pre_delete, sender=Photo, dispatch_uid='photo_pre_delete')
+def photo_pre_delete(sender, instance, using, **kwargs):
+    api.delete_resources([instance.image.public_id])
+
     key = "photo:%s" % instance.artwork.slug
     cache.delete(key)

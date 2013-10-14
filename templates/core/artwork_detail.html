@@ -25,13 +25,13 @@
         <div class="row">
             <div class="col-md-10">
                 <a data-toggle="lightbox" href="#imageLightbox">
-                    {% cloudinary image width=800 crop="fit" class="img-responsive img-rounded" %}
+                    {% cloudinary image width=800 height=800 crop="fit" class="img-responsive img-rounded" %}
                 </a>
             </div>
             <div class="col-md-2">
 
                 {% if user.is_authenticated %}
-                    {% if artwork.submitter == user %}
+                    {% if artwork.publisher == user %}
                         <div class="btn-group-vertical">
                             {% if auction %}
                                 <a href="{% url 'auctions:auction_edit' slug=artwork.slug %}"
@@ -65,7 +65,7 @@
         </div>
     {% endwith %}
 
-    <p><small>Published {{ artwork.published|date }} by {{ artwork.submitter }}</small></p>
+    <p><small>Published {{ artwork.published|date }} by {{ artwork.publisher }}</small></p>
 
     <div class="panel panel-default">
         <div class="panel-heading">

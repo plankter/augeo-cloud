@@ -1,5 +1,4 @@
 from decimal import Decimal
-from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, DetailView, RedirectView
@@ -60,19 +59,10 @@ class AuctionDetail(DetailView):
         lot = Artwork.objects.get_artwork(self.kwargs['slug'])
         context['lot'] = lot
         context['photo'] = lot.get_photo()
+        context['auction_channel'] = self.kwargs['slug']
         bid = Bid.objects.get_highest_bid(self.object)
         if bid:
             context['bid'] = bid
-        if self.request.user.is_authenticated():
-            try:
-                basket = BidBasket.objects.get_basket(self.request.user)
-                if basket:
-                    channels = basket.get_notification_channels()
-                    if not channels:
-                        channels = self.object.lot.slug
-                    context['notification_channels'] = channels
-            except ObjectDoesNotExist:
-                pass
         return context
 
 

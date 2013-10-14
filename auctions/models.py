@@ -1,11 +1,10 @@
 from decimal import Decimal
-from datetime import time
 from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_delete
+from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 
 from south.modelsinspector import add_introspection_rules
@@ -70,20 +69,20 @@ class Auction(models.Model):
         (FIRST_PRICE_SEALED_BID_AUCTION, 'First-price sealed-bid auction'),
     )
 
-    lot = models.OneToOneField(Artwork, verbose_name="Lot", blank=False, db_index=True)
-    auction_type = models.CharField("Auction type", max_length=5, choices=AUCTION_TYPES, default=ENGLISH_AUCTION)
-    start = models.DateTimeField("Auction start")
-    end = models.DateTimeField("Auction end")
-    active = models.BooleanField("Active", default=False)
-    reserve_price = CurrencyField("Reserve price", blank=True)
-    reserve_price_posted = models.BooleanField("Is reserve price posted?", default=False)
-    minimum_bid = CurrencyField("Minimum bid", blank=True)
-    bid_increment = CurrencyField("Minimum bid increment", blank=True)
-    dynamic_closing = models.BooleanField("Auction dynamic closing", default=False)
-    closing_increment = models.TimeField("Auction dynamic closing time increment", default=time(0, 10, 0))
-    total_bids = models.PositiveIntegerField("Total bids", default=0)
-    date_added = models.DateTimeField("Date added", auto_now_add=True)
-    last_modified = models.DateTimeField("Last modified", auto_now=True)
+    lot = models.OneToOneField(Artwork, verbose_name="Lot", blank=False)
+    #auction_type = models.CharField("Auction type", max_length=5, choices=AUCTION_TYPES, default=ENGLISH_AUCTION)
+    start = models.DateTimeField("Auction start", blank=False, db_index=True)
+    end = models.DateTimeField("Auction end", blank=False, db_index=True)
+    active = models.BooleanField("Active", blank=False, default=False)
+    #reserve_price = CurrencyField("Reserve price", blank=True)
+    #reserve_price_posted = models.BooleanField("Is reserve price posted?", default=False)
+    #minimum_bid = CurrencyField("Minimum bid", blank=True)
+    #bid_increment = CurrencyField("Minimum bid increment", blank=True)
+    #dynamic_closing = models.BooleanField("Auction dynamic closing", default=False)
+    #closing_increment = models.TimeField("Auction dynamic closing time increment", default=time(0, 10, 0))
+    #total_bids = models.PositiveIntegerField("Total bids", default=0)
+    created = models.DateTimeField("Created", auto_now_add=True)
+    modified = models.DateTimeField("Modified", auto_now=True)
 
     objects = AuctionManager()
 
@@ -113,8 +112,8 @@ class Auction(models.Model):
         return self.lot.title
 
 
-@receiver(post_delete, sender=Auction, dispatch_uid='auction_post_delete')
-def auction_post_delete(sender, instance, using, **kwargs):
+@receiver(pre_delete, sender=Auction, dispatch_uid='auction_pre_delete')
+def auction_pre_delete(sender, instance, using, **kwargs):
     key = "auction:%s" % instance.lot.slug
     cache.delete(key)
 
@@ -137,9 +136,9 @@ class BidBasket(models.Model):
     """
     This models functions similarly to a shopping cart, except it expects a logged in user.
     """
-    bidder = models.OneToOneField(User, verbose_name="Bidder", blank=False, db_index=True)
-    date_added = models.DateTimeField('Date added', auto_now_add=True)
-    last_modified = models.DateTimeField('Last modified', auto_now=True)
+    bidder = models.OneToOneField(User, verbose_name="Bidder", blank=False)
+    created = models.DateTimeField('Created', auto_now_add=True)
+    modified = models.DateTimeField('Modified', auto_now=True)
 
     objects = BidBasketManager()
 
@@ -158,23 +157,34 @@ class BidBasket(models.Model):
 
         try:
             amount = Decimal(amount)
-        except Exception, e:
-            amount = Decimal('0')
+        except Exception:
+            return False
 
-        bid, created = Bid.objects.get_or_create(bid_basket=self, auction=auction)
+        highest_bid = Bid.objects.get_highest_bid(auction)
+        if amount <= highest_bid:
+            return False
+
+        bid, created = Bid.objects.get_or_create(bid_basket=self, auction=auction, amount=amount)
         if bid:
-            bid.amount = amount
             bid.save()
             self.save()
 
-            info = pubnub.publish({
+            amount_text = str(amount.quantize(Decimal("0.01")))
+
+            pubnub.publish({
                 'channel': auction.lot.slug,
                 'message': {
-                    'text': "New bid on %s" % auction,
-                    'amount': str(amount.quantize(Decimal("0.01")))
+                    'text': 'New bid!',
+                    'amount': amount_text
                 }
             })
 
+            pubnub.publish({
+                'channel': auction.lot.publisher.username,
+                'message': {
+                    'text': 'New bid %s on <strong>"%s"</strong>' % (amount_text, auction),
+                }
+            })
         return bid
 
     def update_bid(self, auction, amount):
@@ -219,21 +229,6 @@ class BidBasket(models.Model):
         """
         return Bid.objects.filter(bid_busket=self).count()
 
-    def get_notification_channels(self):
-        key = "notification_channels:%s" % self.bidder
-        channels = cache.get(key)
-        if not channels:
-            try:
-                bids = self.bid_set.select_related()
-                if bids:
-                    auctions = [bid.auction for bid in bids]
-                    slugs = [auction.lot.slug for auction in auctions]
-                    channels = ', '.join(slugs)
-                    cache.add(key, channels)
-            except ObjectDoesNotExist:
-                return None
-        return channels
-
 
 
 
@@ -251,9 +246,9 @@ class BidManager(models.Manager):
 
 
 class Bid(models.Model):
-    auction = models.ForeignKey(Auction, verbose_name="Auction", blank=False, db_index=True)
+    auction = models.ForeignKey(Auction, verbose_name="Auction", blank=False)
     bid_basket = models.ForeignKey(BidBasket, verbose_name="Bid basket", blank=False)
-    amount = CurrencyField('Amount', blank=False)
+    amount = CurrencyField('Amount', blank=False, db_index=True)
 
     objects = BidManager()
 
