@@ -31,6 +31,7 @@ if os.environ['DJANGO_SETTINGS_MODULE'] == 'augeo.settings':
         'components/django-suit.py',
         'components/disqus.py',
         'components/djrill.py',
+        'components/djangorestframework.py',
 
         # OVERRIDE SETTINGS
 
