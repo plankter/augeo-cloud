@@ -246,8 +246,8 @@ class BidManager(models.Manager):
 
 
 class Bid(models.Model):
-    auction = models.ForeignKey(Auction, verbose_name="Auction", blank=False)
-    bid_basket = models.ForeignKey(BidBasket, verbose_name="Bid basket", blank=False)
+    auction = models.ForeignKey(Auction, verbose_name="Auction", blank=False, related_name='bids')
+    bid_basket = models.ForeignKey(BidBasket, verbose_name="Bid basket", blank=False, related_name='bids')
     amount = CurrencyField('Amount', blank=False, db_index=True)
 
     objects = BidManager()

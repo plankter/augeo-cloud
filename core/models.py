@@ -77,7 +77,7 @@ class PhotoManager(models.Manager):
 class Photo(models.Model):
     caption = models.CharField("Caption", max_length=200, blank=True)
     image = CloudinaryField("Image", blank=True)
-    artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE)
+    artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE, related_name='photos')
 
     objects = PhotoManager()
 
@@ -91,10 +91,10 @@ class Photo(models.Model):
 
     def __unicode__(self):
         try:
-            public_id = self.image.public_id
+            result = self.image.public_id
         except AttributeError:
-            public_id = ''
-        return "%s:%s" % (self.caption, public_id)
+            result = ''
+        return result
 
 
 @receiver(pre_delete, sender=Photo, dispatch_uid='photo_pre_delete')
