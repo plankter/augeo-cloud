@@ -18,8 +18,8 @@ admin.autodiscover()
 
 # Routers provide an easy way of automatically determining the URL conf
 router = routers.DefaultRouter()
-router.register(r'artworks', ArtworkViewSet)
-router.register(r'auctions', AuctionViewSet)
+router.register(r'artworks', ArtworkViewSet, base_name='artwork')
+router.register(r'auctions', AuctionViewSet, base_name='auction')
 
 
 urlpatterns = patterns('',

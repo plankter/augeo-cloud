@@ -14,3 +14,16 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
         # Write permissions are only allowed to the owner of the snippet
         return obj.owner == request.user
+
+
+class IsAuthenticatedNotOwner(permissions.BasePermission):
+    """
+    Custom permission to only allow owners of an object to edit it.
+    """
+
+    def has_object_permission(self, request, view, obj):
+        if not request.user or not request.user.is_authenticated():
+            return False
+
+        # Write permissions are only allowed to the owner of the snippet
+        return obj.lot.publisher != request.user
