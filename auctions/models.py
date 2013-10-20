@@ -1,4 +1,6 @@
+from datetime import time
 from decimal import Decimal
+
 from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
@@ -61,26 +63,40 @@ class AuctionManager(models.Manager):
 
 
 class Auction(models.Model):
-    ENGLISH_AUCTION = 'EA'
-    FIRST_PRICE_SEALED_BID_AUCTION = 'FPSBA'
-
+    ENGLISH_AUCTION = 1
+    REALTIME_ENGLISH_AUCTION = 2
+    FIRST_PRICE_SEALED_BID_AUCTION = 3
     AUCTION_TYPES = (
         (ENGLISH_AUCTION, 'English auction'),
+        (REALTIME_ENGLISH_AUCTION, 'Real-time English auction'),
         (FIRST_PRICE_SEALED_BID_AUCTION, 'First-price sealed-bid auction'),
     )
 
+    STATUS_READY = 1
+    STATUS_ACTIVE = 2
+    STATUS_FINISHED = 3
+    STATUS_SETTLED = 4
+    STATUS_DISABLED = 5
+    AUCTION_STATUSES = (
+        (STATUS_READY, 'Ready'),
+        (STATUS_ACTIVE, 'Active'),
+        (STATUS_FINISHED, 'Finished'),
+        (STATUS_SETTLED, 'Settled'),
+        (STATUS_DISABLED, 'Disabled'),
+    )
+
     lot = models.OneToOneField(Artwork, verbose_name="Lot", blank=False)
-    #auction_type = models.CharField("Auction type", max_length=5, choices=AUCTION_TYPES, default=ENGLISH_AUCTION)
+    type = models.PositiveSmallIntegerField("Auction type", blank=False, choices=AUCTION_TYPES, default=ENGLISH_AUCTION)
+    status = models.PositiveSmallIntegerField("Status", blank=False, choices=AUCTION_STATUSES, default=STATUS_READY, db_index=True)
     start = models.DateTimeField("Auction start", blank=False, db_index=True)
     end = models.DateTimeField("Auction end", blank=False, db_index=True)
-    active = models.BooleanField("Active", blank=False, default=False)
-    #reserve_price = CurrencyField("Reserve price", blank=True)
-    #reserve_price_posted = models.BooleanField("Is reserve price posted?", default=False)
-    #minimum_bid = CurrencyField("Minimum bid", blank=True)
-    #bid_increment = CurrencyField("Minimum bid increment", blank=True)
-    #dynamic_closing = models.BooleanField("Auction dynamic closing", default=False)
-    #closing_increment = models.TimeField("Auction dynamic closing time increment", default=time(0, 10, 0))
-    #total_bids = models.PositiveIntegerField("Total bids", default=0)
+    reserve_price = CurrencyField("Reserve price", blank=True)
+    reserve_price_posted = models.BooleanField("Is reserve price posted?", default=False)
+    minimum_bid = CurrencyField("Minimum bid", blank=True)
+    bid_increment = CurrencyField("Minimum bid increment", blank=True)
+    realtime_increment = models.TimeField("Auction dynamic closing time increment", default=time(0, 10, 0))
+    highest_bid = CurrencyField("Highest bid", blank=True)
+    total_bids = models.PositiveIntegerField("Total bids", default=0)
     created = models.DateTimeField("Created", auto_now_add=True)
     modified = models.DateTimeField("Modified", auto_now=True)
 
@@ -249,6 +265,7 @@ class Bid(models.Model):
     auction = models.ForeignKey(Auction, verbose_name="Auction", blank=False, related_name='bids')
     bid_basket = models.ForeignKey(BidBasket, verbose_name="Bid basket", blank=False, related_name='bids')
     amount = CurrencyField('Amount', blank=False, db_index=True)
+    created = models.DateTimeField('Created', auto_now_add=True)
 
     objects = BidManager()
 

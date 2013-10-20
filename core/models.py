@@ -1,16 +1,28 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.cache import cache
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.db.models.signals import pre_delete, post_save
+from django.dispatch import receiver
 
 from cloudinary import api
 from cloudinary.models import CloudinaryField
-from django.db.models.signals import pre_delete
-from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
 from taggit.managers import TaggableManager
 from uuslug import uuslug
 
 
+
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    if created:
+        Token.objects.create(user=instance)
+
+
+for user in User.objects.all():
+    Token.objects.get_or_create(user=user)
 
 
 class ArtworkManager(models.Manager):

@@ -6,11 +6,10 @@ from .models import Auction, Bid
 class AuctionForm(forms.ModelForm):
     class Meta:
         model = Auction
-        fields = ('start', 'end', 'active',)
+        fields = ('start', 'end',)
         widgets = {
             'start': forms.DateTimeInput(attrs={'placeholder': 'Date & Time'}),
             'end': forms.DateTimeInput(attrs={'placeholder': 'Date & Time'}),
-            'active': forms.CheckboxInput,
         }
 
 

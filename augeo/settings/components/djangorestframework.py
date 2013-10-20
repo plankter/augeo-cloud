@@ -3,6 +3,7 @@ from os import environ
 # See: http://django-rest-framework.org/
 INSTALLED_APPS += (
     'rest_framework',
+    'rest_framework.authtoken',
 )
 
 REST_FRAMEWORK = {
@@ -16,5 +17,10 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    )
 }

@@ -10,6 +10,7 @@ django-crispy-forms==1.4.0
 django-debug-toolbar==0.9.4
 django-disqus==0.4.1
 django-floppyforms==1.1
+django-oauth2-provider==0.2.6
 django-pylibmc-sasl==0.2.4
 django-split-settings==0.1.1
 django-storages==1.1.8
@@ -19,8 +20,10 @@ django-uuslug==1.0.0
 djangorestframework==2.3.8
 djrill==0.6.0
 gunicorn==18.0
+httplib2==0.8
 newrelic==2.4.0.4
 oauthlib==0.6.0
+paypalrestsdk==0.6.3
 poster==0.8.2
 psycopg2==2.5.1
 pubnub==3.3.2
@@ -33,6 +36,7 @@ python-social-auth==0.1.14
 pytz==2013.7
 requests==2.0.0
 requests-oauthlib==0.4.0
+shortuuid==0.4
 six==1.4.1
 urbanairship==0.6.2
 wsgiref==0.1.2

@@ -32,5 +32,6 @@ urlpatterns = patterns('',
     url(r'', include(profiles, namespace='profiles')),
     url(r'', include(events, namespace='events')),
 
-    url(r'^api-auth/', include(rest_framework, namespace='rest_framework'))
+    url(r'^api-auth/', include(rest_framework, namespace='rest_framework')),
+    url(r'^api-token-auth/', 'rest_framework.authtoken.views.obtain_auth_token')
 )

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auctions/api.py" afterPath="$PROJECT_DIR$/auctions/api.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/api.py" afterPath="$PROJECT_DIR$/core/api.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/permissions.py" afterPath="$PROJECT_DIR$/core/permissions.py" />
+    <list default="true" id="fe18c403-efcf-4f8e-84f2-61612fa3c9c8" name="Default" comment="WIP">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/augeo/settings/components/django-oauth2-provider.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/settings/__init__.py" afterPath="$PROJECT_DIR$/augeo/settings/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/settings/components/djangorestframework.py" afterPath="$PROJECT_DIR$/augeo/settings/components/djangorestframework.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auctions/forms.py" afterPath="$PROJECT_DIR$/auctions/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/forms.py" afterPath="$PROJECT_DIR$/profiles/forms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auctions/models.py" afterPath="$PROJECT_DIR$/auctions/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/models.py" afterPath="$PROJECT_DIR$/core/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/profiles/models.py" afterPath="$PROJECT_DIR$/profiles/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/augeo/urls.py" afterPath="$PROJECT_DIR$/augeo/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -35,21 +40,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="api.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/auctions/api.py">
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auctions/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="43" selection-start="790" selection-end="790" vertical-scroll-proportion="0.49242425" vertical-offset="0" max-vertical-offset="885">
+            <state line="101" column="0" selection-start="3611" selection-end="3611" vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="4260">
               <folding>
-                <element signature="e#0#27#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="permissions.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/permissions.py">
+      <file leaf-file-name="forms.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/auctions/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="7" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+            <state line="13" column="0" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="39" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.39672545" vertical-offset="15" max-vertical-offset="1650">
               <folding />
             </state>
           </provider>
@@ -73,22 +87,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/auctions/views.py" />
-        <option value="$PROJECT_DIR$/templates/includes/_bid_modal_form.html" />
-        <option value="$PROJECT_DIR$/augeo/settings/components/auth.py" />
-        <option value="$PROJECT_DIR$/core/views.py" />
         <option value="$PROJECT_DIR$/templates/auctions/auction_detail.html" />
         <option value="$PROJECT_DIR$/templates/core/artwork_detail.html" />
-        <option value="$PROJECT_DIR$/augeo/settings/__init__.py" />
         <option value="$PROJECT_DIR$/core/urls.py" />
         <option value="$PROJECT_DIR$/auctions/permissions.py" />
-        <option value="$PROJECT_DIR$/augeo/settings/components/djangorestframework.py" />
-        <option value="$PROJECT_DIR$/core/models.py" />
-        <option value="$PROJECT_DIR$/auctions/models.py" />
-        <option value="$PROJECT_DIR$/augeo/urls.py" />
         <option value="$PROJECT_DIR$/core/api.py" />
         <option value="$PROJECT_DIR$/core/permissions.py" />
         <option value="$PROJECT_DIR$/auctions/api.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/django-oauth2-provider.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/__init__.py" />
+        <option value="$PROJECT_DIR$/augeo/urls.py" />
+        <option value="$PROJECT_DIR$/augeo/settings/components/djangorestframework.py" />
+        <option value="$PROJECT_DIR$/profiles/forms.py" />
+        <option value="$PROJECT_DIR$/profiles/models.py" />
+        <option value="$PROJECT_DIR$/auctions/models.py" />
+        <option value="$PROJECT_DIR$/core/models.py" />
+        <option value="$PROJECT_DIR$/auctions/forms.py" />
       </list>
     </option>
   </component>
@@ -123,6 +137,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -155,7 +170,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -169,7 +184,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
+              <option name="myItemId" value="augeo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo-cloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo-cloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo-cloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo-cloud" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="augeo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="settings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -189,7 +244,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -538,7 +592,11 @@
       <created>1382052940032</created>
       <updated>1382052940032</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="WIP">
+      <created>1382138594160</created>
+      <updated>1382138594160</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -563,18 +621,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1330" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3231405" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32260725" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920793" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20769848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21002387" sideWeight="0.677686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21320605" sideWeight="0.6782178" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39752066" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32435465" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32231405" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32178217" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975206" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -635,125 +693,111 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/rest_framework/views.py">
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/python-social-auth.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="16" selection-start="4077" selection-end="4077" vertical-scroll-proportion="-5.1523438" vertical-offset="5532" max-vertical-offset="6300">
+        <state line="5" column="1" selection-start="0" selection-end="133" vertical-scroll-proportion="0.094816685" vertical-offset="0" max-vertical-offset="791" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/django-oauth2-provider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="1" selection-start="145" selection-end="145" vertical-scroll-proportion="0.11363637" vertical-offset="0" max-vertical-offset="792" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auctions/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="43" selection-start="790" selection-end="790" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augeo/settings/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="10" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/rest_framework/routers.py">
+    <entry file="file://$PROJECT_DIR$/core/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="40" selection-start="1696" selection-end="1696" vertical-scroll-proportion="0.37027708" vertical-offset="396" max-vertical-offset="4095">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/djangorestframework.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="1" selection-start="807" selection-end="807" vertical-scroll-proportion="0.47348484" vertical-offset="0" max-vertical-offset="792" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/augeo/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="54" selection-start="892" selection-end="892" vertical-scroll-proportion="0.30226701" vertical-offset="0" max-vertical-offset="794">
-          <folding />
-        </state>
+        <state line="28" column="46" selection-start="837" selection-end="837" vertical-scroll-proportion="0.530303" vertical-offset="0" max-vertical-offset="792" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/rest_framework/viewsets.py">
+    <entry file="file://$PROJECT_DIR$/profiles/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="49" selection-start="4074" selection-end="4074" vertical-scroll-proportion="0.0" vertical-offset="1323" max-vertical-offset="2115">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/django/shortcuts/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="4" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.33333334" vertical-offset="1101" max-vertical-offset="2385">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/rest_framework/generics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="69" selection-start="1524" selection-end="1524" vertical-scroll-proportion="0.7386364" vertical-offset="0" max-vertical-offset="7740">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auctions/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="1" selection-start="799" selection-end="799" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+        <state line="37" column="19" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.69899243" vertical-offset="0" max-vertical-offset="794">
           <folding>
-            <element signature="e#0#42#0" expanded="false" />
+            <element signature="e#0#24#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/api.py">
+    <entry file="file://$PROJECT_DIR$/profiles/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+        <state line="11" column="20" selection-start="222" selection-end="222" vertical-scroll-proportion="0.20780857" vertical-offset="0" max-vertical-offset="794">
           <folding>
-            <element signature="e#0#31#0" expanded="false" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/rest_framework/permissions.py">
+    <entry file="file://$PROJECT_DIR$/profiles/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="23" selection-start="1542" selection-end="1639" vertical-scroll-proportion="0.0" vertical-offset="441" max-vertical-offset="3570">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="794">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/rest_framework/decorators.py">
+    <entry file="file://$PROJECT_DIR$/auctions/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="4" selection-start="3860" selection-end="3860" vertical-scroll-proportion="0.71590906" vertical-offset="1188" max-vertical-offset="1980">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../venv/lib/python2.7/site-packages/django/forms/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="220" column="0" selection-start="8476" selection-end="8476" vertical-scroll-proportion="0.3324937" vertical-offset="2826" max-vertical-offset="15825">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/models.py">
+    <entry file="file://$PROJECT_DIR$/auctions/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="0" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.85227275" vertical-offset="0" max-vertical-offset="1500">
+        <state line="13" column="0" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/auctions/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="0" selection-start="7647" selection-end="7647" vertical-scroll-proportion="4.087121" vertical-offset="243" max-vertical-offset="3810">
+        <state line="101" column="0" selection-start="3611" selection-end="3611" vertical-scroll-proportion="0.0" vertical-offset="1035" max-vertical-offset="4260">
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/augeo/settings/components/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="60" selection-start="684" selection-end="684" vertical-scroll-proportion="0.60453403" vertical-offset="0" max-vertical-offset="794">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auctions/views.py">
+    <entry file="file://$PROJECT_DIR$/core/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="63" selection-start="2387" selection-end="2387" vertical-scroll-proportion="0.24242425" vertical-offset="918" max-vertical-offset="1710">
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="51" selection-start="963" selection-end="963" vertical-scroll-proportion="0.18560606" vertical-offset="393" max-vertical-offset="1740">
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/permissions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="7" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+        <state line="34" column="39" selection-start="1040" selection-end="1040" vertical-scroll-proportion="0.39672545" vertical-offset="15" max-vertical-offset="1650">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auctions/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="43" selection-start="790" selection-end="790" vertical-scroll-proportion="0.49242425" vertical-offset="0" max-vertical-offset="885">
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
