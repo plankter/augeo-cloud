@@ -1,6 +1,4 @@
 import floppyforms as forms
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
 from cloudinary.forms import CloudinaryJsFileField
 
 from .models import Photo, Artwork
@@ -19,7 +17,7 @@ class ArtworkForm(forms.ModelForm):
 
 class PhotoForm(forms.ModelForm):
     image = CloudinaryJsFileField(
-        attrs = { 'style': "display:none" },
+        attrs = { 'style': "display:none", 'id': "id_photo-image" },
         options={
             'tags': ["augeo", "photo"],
             'eager': [{'crop': 'fit', 'width': 240}]
